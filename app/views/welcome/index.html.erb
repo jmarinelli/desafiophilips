@@ -1,1 +1,19 @@
-<h1><%= @name %></h1>
+<body background=<%= image_path("background-login.jpg") %>>
+
+<% @page_title = "Login" -%>
+<div class= "formu">
+  <h1>Log in</h1>
+  <%= form_tag(:action => 'login') do %>
+    <p>
+    DNI:</br> <%= text_field_tag(:dni) %>
+    </p> 
+    
+    <p>
+    Password (su número de legajo):</br> <%= password_field_tag :password %>
+    </p> 
+
+    <%= submit_tag("Log In") %>
+  <% end %>
+</div>
+
+</body>
