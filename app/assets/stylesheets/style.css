@@ -1,3 +1,7 @@
+body {
+	height: 100%;
+}
+
 .container {
 	margin: 20px;
 	background: -webkit-linear-gradient(left top, #006BA2, #000); /* For Safari 5.1 to 6.0 */
@@ -6,6 +10,7 @@
 	background: linear-gradient(to bottom right, #006BA2, #000); /* Standard syntax */
 	height:-moz-calc(100% - 90px);
   	height:calc(100% - 90px);
+  	height: -webkit-calc(100% - 90px);
   	border-bottom-right-radius: 100px;
   	overflow: hidden;
   	position: relative;
@@ -88,6 +93,7 @@
 .content {
 	height:-moz-calc(100% - 100px);
   	height:calc(100% - 100px);
+  	height: -webkit-calc(100% - 100px);
 	position: relative;
 }
 
