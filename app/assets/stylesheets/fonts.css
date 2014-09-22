@@ -1,11 +1,11 @@
 @font-face {
     font-family: centraleSans;
-    src: url(CentraleSans-Bold.otf);
+    src: url(fonts/CentraleSans-Bold.otf);
     font-weight: bold;
 }
 
 @font-face {
     font-family: centraleSans;
-    src: url(CentraleSans-Regular.otf);
+    src: url(fonts/CentraleSans-Regular.otf);
     font-weight: regular;
 }
