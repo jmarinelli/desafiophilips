@@ -1,15 +1,24 @@
-<% @page_title = "Login" -%>
-<div class= "formu">
-  <h1>Log in</h1>
-  <%= form_tag(:action => 'login') do %>
-    <p>
-    DNI:</br> <%= text_field_tag(:dni) %>
-    </p> 
-    
-    <p>
-    Password (su número de legajo):</br> <%= password_field_tag :password %>
-    </p> 
-
-    <%= submit_tag("Log In") %>
-  <% end %>
+<div class="container">
+  <%= image_tag("philips-logo.png", class: "philips-logo") %>
+  <%= image_tag("philips-event.png", class: "event") %>
+</div>
+<div class="login-wrapper">
+  <div class= "login-form">
+    <%= form_tag(:action => 'login') do %>
+      <p>
+        DNI:
+      </p> 
+      <%= text_field_tag(:dni) %>
+      <p>
+        Nº de Legajo:
+      </p> 
+      <%= password_field_tag :password %>
+      <%= submit_tag("Iniciar") %>
+    <% end %>
+  </div>
+</div>
+<%= image_tag("login-world.png", class: "login-world") %>
+<%= image_tag("login.png", class: "login-bg") %>
+<div class="footer">
+  <%= image_tag("philips.png", class: "footer-right") %>
 </div>
