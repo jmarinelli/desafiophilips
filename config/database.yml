@@ -20,7 +20,7 @@ development:
   database: desafiophilips_development
   pool: 5
   username: desafiophilips
-  password:
+  password: desafiophilips
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,7 +49,7 @@ test:
   database: desafiophilips_test
   pool: 5
   username: desafiophilips
-  password:
+  password: desafiophilips
 
 production:
   adapter: postgresql
