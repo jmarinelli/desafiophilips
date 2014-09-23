@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :position
   has_many :sales
 
-  def get_points
+  def points
     self.sales.inject(0){ |acum, s| acum = acum + s.score.value }
   end
 
