@@ -1,7 +1,27 @@
 Desafiophilips::Application.routes.draw do
+  resources :sales
+
   root 'welcome#index'
   post '/' => 'welcome#login'
-  get "fravega" => 'fravega#index'
+
+  get 'fravega' => 'fravega#index'
+
+  namespace :api do
+    scope 'users' do
+      get '' => 'user#index'
+      get ':id' => 'user#show'
+      get ':id/ranking' => 'user#ranking'
+    end
+
+    scope 'companies' do
+      get '' => 'company#index'
+      get ':id/users/ranking' => 'company#user_ranking', position: 'vendedor'
+      get ':id/subsidiaries/ranking' => 'company#subsidiary_ranking'
+    end
+
+    get 'products' => 'product#index'
+    get 'subsidiaries' => 'subsidiary#index'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

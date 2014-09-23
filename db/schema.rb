@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918035017) do
+ActiveRecord::Schema.define(version: 20140923203426) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+  end
+
+  create_table "positions", force: true do |t|
+    t.string "name"
   end
 
   create_table "products", force: true do |t|
@@ -30,6 +35,16 @@ ActiveRecord::Schema.define(version: 20140918035017) do
 
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
   add_index "products", ["score_id"], name: "index_products_on_score_id", using: :btree
+
+  create_table "sales", force: true do |t|
+    t.integer  "score_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sales", ["score_id"], name: "index_sales_on_score_id", using: :btree
+  add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
   create_table "scores", force: true do |t|
     t.string   "code"
@@ -49,17 +64,16 @@ ActiveRecord::Schema.define(version: 20140918035017) do
   add_index "subsidiaries", ["company_id"], name: "index_subsidiaries_on_company_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "dni"
-    t.string   "password"
-    t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "subsidiary_id"
-    t.integer  "company_id"
+    t.string  "name"
+    t.string  "dni"
+    t.string  "employee_file_number"
+    t.integer "subsidiary_id"
+    t.integer "company_id"
+    t.integer "position_id"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
+  add_index "users", ["position_id"], name: "index_users_on_position_id", using: :btree
   add_index "users", ["subsidiary_id"], name: "index_users_on_subsidiary_id", using: :btree
 
 end
