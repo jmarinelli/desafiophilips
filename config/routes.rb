@@ -1,10 +1,7 @@
 Desafiophilips::Application.routes.draw do
-  resources :sales
-
-  root 'welcome#index'
-  post '/' => 'welcome#login'
-
-  get 'fravega' => 'fravega#index'
+  root 'site#index'
+  post '/' => 'site#login'
+  get '/home' => 'site#home'
 
   namespace :api do
     scope 'users' do

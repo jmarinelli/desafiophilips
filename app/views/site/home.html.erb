@@ -1,42 +1,42 @@
-<div class="container">
+<div ng-controller="tabsController" class="container">
 	<div class="topbar">
 		<div class="topbar-right">
 			<ul class="topbar-menu">
-				<li>
+				<li ng-click="ranking()">
 					<%= image_tag("rank.png") %>
 					<span> Ranking </span>
 				</li>
-				<li>
+				<li ng-click="points()">
 					<%= image_tag("plane.png") %>
 					<span> Millas </span>
 				</li>
-				<li>
+				<li ng-click="products()">
 					<%= image_tag("cart.png") %>
 					<span> Productos</span>
 				</li>
-				<li>
+				<li ng-click="prizes()">
 					<%= image_tag("prize.png") %>
 					<span> Premios</span>
 				</li>
-				<li>
+				<li ng-click="trivia()">
 					<%= image_tag("quiz.png") %>
 					<span> Trivias</span>
 				</li>
-				<li>
+				<li ng-click="termsAndConditions()">
 					<%= image_tag("check.png") %>
 					<span> Bases y <br>Condiciones </span>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<div class="content-box">
-		Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega Fravega 
+	<div class="content-box" ng-controller="tabsController" compile="template">
+		Acá va a haber mucha giladita
 	</div>
 	<%= image_tag("philips-logo.png", class: "philips-logo") %>
 	<%= image_tag("world-transparent.png", class: "world") %>
 	<%= image_tag("philips-event.png", class: "event") %>
 </div>
 <div class="footer">
-	<%= image_tag("garbarino.png", class: "footer-left") %>
+	<%= image_tag(@company.name.downcase + ".png", class: "footer-left") %>
 	<%= image_tag("philips.png", class: "footer-right") %>
 </div>
