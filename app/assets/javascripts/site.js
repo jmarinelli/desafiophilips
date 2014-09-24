@@ -1,4 +1,4 @@
-angular.module("app", ['ngRoute'], function($compileProvider) {
+angular.module("app", ['ngRoute'], ['$compileProvider', function($compileProvider) {
   $compileProvider.directive('compile', function($compile) {
     return function(scope, element, attrs) {
       scope.$watch(
@@ -12,8 +12,8 @@ angular.module("app", ['ngRoute'], function($compileProvider) {
       );
     };
   });
-})
-.controller('tabsController', function ($scope, $http, $sce, $compile) {
+}])
+.controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
   $scope.changeTemplate = function(tmp) {
     $http.get(templates[tmp]).success(function(data) {
       $scope.template = data;
@@ -38,12 +38,12 @@ angular.module("app", ['ngRoute'], function($compileProvider) {
   $scope.termsAndConditions = function() {
     $scope.changeTemplate("termsAndConditions");
   }
-}).controller('rankingController', function ($scope, $http) {
+}]).controller('rankingController', ['$scope', '$http', function ($scope, $http) {
   $http.get('/api/companies/1/users/ranking').success(function (data) {
     $scope.users = data;
   });
-}).controller('productsController', function ($scope, $http) {
+}]).controller('productsController', ['$scope', '$http', function ($scope, $http) {
   $http.get('/api/products').success(function (data) {
     $scope.products = data;
   });
-});
+}]);
