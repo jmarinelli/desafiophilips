@@ -1,4 +1,4 @@
-angular.module("app", [], function($compileProvider) {
+angular.module("app", ['ngRoute'], function($compileProvider) {
   $compileProvider.directive('compile', function($compile) {
     return function(scope, element, attrs) {
       scope.$watch(
