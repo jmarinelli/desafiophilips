@@ -1,5 +1,5 @@
 angular.module("app", [], ['$compileProvider', function($compileProvider) {
-  $compileProvider.directive('compile', function($compile) {
+  $compileProvider.directive('compile', ['$compile', function($compile) {
     return function(scope, element, attrs) {
       scope.$watch(
         function(scope) {
@@ -11,7 +11,7 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
       }
       );
     };
-  });
+  }]);
 }])
 .controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
   $scope.changeTemplate = function(tmp) {
