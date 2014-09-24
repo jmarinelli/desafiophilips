@@ -2,6 +2,9 @@
 <html ng-app="app">
 <head>
   <title>Destino philips</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -9,10 +12,6 @@
 	<body>
 
 	<%= yield %>
-
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 	</body>
 
