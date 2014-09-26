@@ -4,58 +4,23 @@
   </ul>
 </div> -->
 <h3>Ranking</h3>
-<table class="ranking">
+<table class="ranking" ng-controller="rankingController">
   <tr>
-    <th>Vendedor</td>
-    <th>Sucursal</td>		
+    <th></th>
+    <th>Vendedor</th>
+    <th>Sucursal</th>
+    <th class="points">Puntos</th>
+  </tr>
+  <tr ng-repeat="u in ranking">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.subsidiary.name }}</td>
+    <td>{{ u.points }}</td>
   </tr>
   <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
-  </tr>
-    </tr>
-    <tr>
-    <td>Leo Matioli</td>
-    <td>5</td>		
+    <td>{{ user.ranking ? user.ranking : '...' }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.subsidiary.name }}</td>
+    <td>{{ user.points }}</td>
   </tr>
 </table>

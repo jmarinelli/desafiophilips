@@ -5,7 +5,7 @@ class Api::CompanyController < ApplicationController
   def user_ranking
     @position = Position.find_by(name: params[:position].split('-').map(&:capitalize).join('-'))
 
-    render json: User.top(params[:id], @position.id, params[:limit])
+    render json: User.top(params[:id], @position.id, params[:limit]), :include => :subsidiary
   end
 
   def subsidiary_ranking

@@ -4,70 +4,13 @@
   </ul>
 </div> -->
 <h3>¿Como Sumar millas?</h3>
-<table class="ranking">
+<table class="ranking" ng-controller="productsController">
   <tr>
-    <th>Producto</td>
-    <th>Puntos</td>		
+    <th>Producto</th>
+    <th>Puntos</th>
   </tr>
-  <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
+  <tr ng-repeat="p in products">
+    <td>{{ p.name }}</td>
+    <td>{{ p.points }}</td>		
   </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-    <tr>
-    <td>LCD 32" PHILIPS</td>
-    <td>100</td>		
-  </tr>
-
 </table>

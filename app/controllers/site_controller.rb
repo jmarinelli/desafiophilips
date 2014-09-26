@@ -16,5 +16,6 @@ class SiteController < ApplicationController
       redirect_to :action => 'index'
     end
     @company = Company.find(session[:company_id])
+    @user = User.find(session[:user_id])
   end
 end

@@ -39,8 +39,18 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
     $scope.changeTemplate("termsAndConditions");
   }
 }]).controller('rankingController', ['$scope', '$http', function ($scope, $http) {
-  $http.get('/api/companies/1/users/ranking').success(function (data) {
-    $scope.users = data;
+  $http.get('/api/companies/1/users/ranking?limit=4').success(function (data) {
+    $scope.ranking = data;
+    $http.get('/api/users/1/ranking').success(function (resp) {
+      var include = true;
+      $scope.ranking.forEach(
+        function (e) {
+          if (e.id == resp.id)
+            include = false;
+        }
+      )
+      if (include) $scope.user = resp;
+    });
   });
 }]).controller('productsController', ['$scope', '$http', function ($scope, $http) {
   $http.get('/api/products').success(function (data) {
