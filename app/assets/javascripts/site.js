@@ -14,29 +14,59 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
   }]);
 }])
 .controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
-  $scope.changeTemplate = function(tmp) {
+  $scope.selected = {
+    rules: false,
+    ranking: false,
+    points: false,
+    products: false,
+    prizes: false,
+    trivia: false,
+    termsAndConditions: false
+  };
+  var _unselectAll = function() {
+    for (key in $scope.selected) {
+      $scope.selected[key] = false;
+    }
+  }
+  var _changeTemplate = function(tmp) {
     $http.get(templates[tmp]).success(function(data) {
       $scope.template = data;
     });
   };
-
+  $scope.rules = function() {
+    _changeTemplate("rules");
+    _unselectAll();
+    $scope.selected.rules = true;
+  }
   $scope.ranking = function() {
-    $scope.changeTemplate("ranking");
+    _changeTemplate("ranking");
+    _unselectAll();
+    $scope.selected.ranking = true;
   }
   $scope.points = function() {
-    $scope.changeTemplate("points");
+    _changeTemplate("points");
+    _unselectAll();
+    $scope.selected.points = true;
   }
   $scope.products = function() {
-    $scope.changeTemplate("products");
+    _changeTemplate("products");
+    _unselectAll();
+    $scope.selected.products = true;
   }
   $scope.prizes = function() {
-    $scope.changeTemplate("prizes");
+    _changeTemplate("prizes");
+    _unselectAll();
+    $scope.selected.prizes = true;
   }
   $scope.trivia = function() {
-    $scope.changeTemplate("trivia");
+    _changeTemplate("trivia");
+    _unselectAll();
+    $scope.selected.trivia = true;
   }
   $scope.termsAndConditions = function() {
-    $scope.changeTemplate("termsAndConditions");
+    _changeTemplate("termsAndConditions");
+    _unselectAll();
+    $scope.selected.termsAndConditions = true;
   }
 }]).controller('rankingController', ['$scope', '$http', function ($scope, $http) {
   $http.get('/api/companies/1/users/ranking?limit=4').success(function (data) {

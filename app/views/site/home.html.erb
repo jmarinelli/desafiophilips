@@ -1,28 +1,32 @@
-<div ng-controller="tabsController" class="container">
+<div ng-controller="tabsController" class="container" ng-init="rules()">
 	<div class="topbar">
 		<div class="topbar-right">
 			<ul class="topbar-menu">
-				<li ng-click="ranking()">
+				<li ng-click="rules()" ng-class="{selected: selected.rules}">
+					<%= image_tag("daProgram.png") %>
+					<span> El Programa </span>
+				</li>
+				<li ng-click="ranking()" ng-class="{selected: selected.ranking}">
 					<%= image_tag("rank.png") %>
 					<span> Ranking </span>
 				</li>
-				<li ng-click="points()">
+				<li ng-click="points()" ng-class="{selected: selected.points}">
 					<%= image_tag("plane.png") %>
 					<span> Millas </span>
 				</li>
-				<li ng-click="products()">
+				<li ng-click="products()" ng-class="{selected: selected.products}">
 					<%= image_tag("cart.png") %>
 					<span> Productos</span>
 				</li>
-				<li ng-click="prizes()">
+				<li ng-click="prizes()" ng-class="{selected: selected.prizes}">
 					<%= image_tag("prize.png") %>
 					<span> Premios</span>
 				</li>
-				<li ng-click="trivia()">
+				<li ng-click="trivia()" ng-class="{selected: selected.trivia}">
 					<%= image_tag("quiz.png") %>
 					<span> Trivias</span>
 				</li>
-				<li ng-click="termsAndConditions()">
+				<li ng-click="termsAndConditions()" ng-class="{selected: selected.termsAndConditions}">
 					<%= image_tag("check.png") %>
 					<span> Bases y <br>Condiciones </span>
 				</li>
@@ -31,12 +35,6 @@
 	</div>
 	<div class="content-box">
 		<div class="content-box-ctn" compile="template" ng-controller="tabsController">
-			<h3>
-				Página principal
-			</h3> 
-			<p>
-				Ver que ponemos como página principal
-			</p>
 		</div>
 	</div>
 	<%= image_tag("philips-logo.png", class: "philips-logo") %>
