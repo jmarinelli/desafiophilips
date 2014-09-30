@@ -1,5 +1,6 @@
 class Api::ProductController < ApplicationController
   def index
-    render json: Product.select("name, products.code, scores.value as points").joins(:score)
+    company = params[:id]
+    render json: Product.select("id, name, code, score").where(company_id: company).offset(params[:offset]).limit(params[:limit]).order('score desc')
   end
 end

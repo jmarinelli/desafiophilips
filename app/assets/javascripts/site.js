@@ -83,7 +83,11 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
     });
   });
 }]).controller('productsController', ['$scope', '$http', function ($scope, $http) {
-  $http.get('/api/products').success(function (data) {
+  $http.get('/api/companies/1/products').success(function (data) {
     $scope.products = data;
+  });
+}]).controller('triviaController', ['$scope', '$http', function($scope, $http) {
+  $http.get('/api/trivia/questions/1').success(function (data) {
+    $scope.question = data;
   });
 }]);

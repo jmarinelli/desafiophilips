@@ -2,6 +2,11 @@ class Api::CompanyController < ApplicationController
   def index
     render json: Company.select("id, name")
   end
+
+  def users
+    render json: User.select("*").where(company_id: params[:id]).limit(params[:limit]).offset(params[:offset])
+  end
+
   def user_ranking
     @position = Position.find_by(name: params[:position].split('-').map(&:capitalize).join('-'))
 

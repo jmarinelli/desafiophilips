@@ -1,4 +1,4 @@
 class Sale < ActiveRecord::Base
-  belongs_to :score
+  belongs_to :product
   belongs_to :user
 end

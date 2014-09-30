@@ -11,36 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923203426) do
+ActiveRecord::Schema.define(version: 20140930171622) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
     t.string "name"
   end
+
+  create_table "options", force: true do |t|
+    t.string  "text"
+    t.integer "question_id"
+  end
+
+  add_index "options", ["question_id"], name: "index_options_on_question_id", using: :btree
 
   create_table "positions", force: true do |t|
     t.string "name"
   end
 
   create_table "products", force: true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.integer  "score_id"
+    t.string  "name"
+    t.string  "code"
+    t.integer "company_id"
+    t.integer "score"
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
-  add_index "products", ["score_id"], name: "index_products_on_score_id", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.string  "text"
+    t.integer "correct_option_id"
+  end
 
   create_table "sales", force: true do |t|
-    t.integer  "score_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
-  add_index "sales", ["score_id"], name: "index_sales_on_score_id", using: :btree
+  add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
   create_table "scores", force: true do |t|
@@ -51,11 +63,8 @@ ActiveRecord::Schema.define(version: 20140923203426) do
   end
 
   create_table "subsidiaries", force: true do |t|
-    t.integer  "code"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
+    t.string  "name"
+    t.integer "company_id"
   end
 
   add_index "subsidiaries", ["company_id"], name: "index_subsidiaries_on_company_id", using: :btree
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140923203426) do
     t.integer "subsidiary_id"
     t.integer "company_id"
     t.integer "position_id"
+    t.integer "trivia_points"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree

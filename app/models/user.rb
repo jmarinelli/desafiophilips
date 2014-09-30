@@ -6,26 +6,30 @@ class User < ActiveRecord::Base
   has_many :sales
 
   def self.top(company, position, limit)
-    User.select("users.id, name, dni, employee_file_number, coalesce(sum(scores.value),0) as points, subsidiary_id")
-        .joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN scores ON sales.score_id = scores.id")
+    User.select("users.id, trivia_points, users.name, dni, employee_file_number, coalesce(sum(products.score),0) as points, subsidiary_id")
+        .joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN products ON sales.product_id = products.id")
         .where(company_id: company).where(position_id: position).group("users.id").order("points desc").limit(limit)
   end
 
   # REVISAR
   def ranking
-    @top_users = User.select("name, coalesce(sum(scores.value), 0) as points")
-                     .joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN scores ON sales.score_id = scores.id")
+    @top_users = User.select("users.name, trivia_points, coalesce(sum(products.score), 0) as points")
+                     .joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN products ON sales.product_id = products.id")
                      .where(company_id: self.company_id).where(position_id: self.position_id).group("users.id")
-                     .having("coalesce(sum(scores.value),0) > ?", self.points)
+                     .having("coalesce(sum(products.score),0) > ?", self.points)
     @top_users.length + 1
   end
 
   def points
-    self.sales.inject(0){ |acum, s| acum = acum + s.score.value }
+    self.sales.inject(0){ |acum, s| acum = acum + s.product.score } + self.trivia_points
   end
 
-  def to_json(options={})
-   options[:except] ||= [:subsidiary_id, :company_id, :created_at, :updated_at]
-   super(options)
- end
+  def add_trivia_points(points)
+    self.update(:trivia_points => self.trivia_points += points)
+  end
+
+  def as_json(options)
+    options[:except] ||= [:created_at, :updated_at]
+    super(options)
+  end
 end

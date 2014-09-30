@@ -10,14 +10,20 @@ Desafiophilips::Application.routes.draw do
       get ':id/ranking' => 'user#ranking'
     end
 
-    scope 'companies' do
-      get '' => 'company#index'
-      get ':id/users/ranking' => 'company#user_ranking', position: 'vendedor'
-      get ':id/subsidiaries/ranking' => 'company#subsidiary_ranking'
+    scope 'trivia' do
+      get 'questions' => 'trivia#index'
+      get 'questions/:id' => 'trivia#show'
+      post 'answers' => 'trivia#answer'
     end
 
-    get 'products' => 'product#index'
-    get 'subsidiaries' => 'subsidiary#index'
+    scope 'companies' do
+      get '' => 'company#index'
+      get ':id/users' => 'company#users'
+      get ':id/users/ranking' => 'company#user_ranking', position: 'vendedor'
+      get ':id/subsidiaries/ranking' => 'company#subsidiary_ranking'
+      get ':id/products' => 'product#index'
+      get ':id/subsidiaries' => 'subsidiary#index'
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
