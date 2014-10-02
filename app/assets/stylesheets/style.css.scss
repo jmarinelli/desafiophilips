@@ -22,7 +22,6 @@ body {
 }
 
 .world {
-	z-index: -1;
 	position: absolute;
 	bottom: 0;
 	height: 550px;
@@ -50,7 +49,7 @@ body {
 	position: relative;
 	left: -25px;
 	float: left;
-	margin-top: 20px;
+	margin-top: 5px;
 	line-height: 30px;
 	font-family: "centraleSans", "Tahoma";
 	h1 {
