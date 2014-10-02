@@ -1,0 +1,3 @@
+app.service('sessionService', function() {
+  return { current_user: <%= @user.to_json.html_safe %>, company: <%= @company.to_json.html_safe %>, cluster: '<%= @cluster %>' };
+});

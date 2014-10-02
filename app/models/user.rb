@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
   belongs_to :position
   has_many :sales
 
-  def self.top(company, position, limit)
+  def self.top(company, cluster_id, position, limit)
     User.select("users.id, trivia_points, users.name, dni, employee_file_number, coalesce(sum(products.score),0) as points, subsidiary_id")
         .joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN products ON sales.product_id = products.id")
+        .joins("JOIN subsidiaries ON users.subsidiary_id = subsidiaries.id").where("subsidiaries.cluster = '" + cluster_id + "'")
         .where(company_id: company).where(position_id: position).group("users.id").order("points desc").limit(limit)
   end
 
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
     self.update(:trivia_points => self.trivia_points += points)
   end
 
-  def as_json(options)
+  def as_json(options={})
     options[:except] ||= [:created_at, :updated_at]
     super(options)
   end

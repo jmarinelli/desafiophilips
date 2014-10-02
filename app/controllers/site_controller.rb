@@ -17,5 +17,6 @@ class SiteController < ApplicationController
     end
     @company = Company.find(session[:company_id])
     @user = User.find(session[:user_id])
+    @cluster = Subsidiary.find(@user.subsidiary_id).cluster
   end
 end

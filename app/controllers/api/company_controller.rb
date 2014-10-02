@@ -7,10 +7,14 @@ class Api::CompanyController < ApplicationController
     render json: User.select("*").where(company_id: params[:id]).limit(params[:limit]).offset(params[:offset])
   end
 
-  def user_ranking
+  def cluster_users
+    render json: User.select("*").where(company_id: params[:id]).where(cluster: params[:cluster_id]).limit(params[:limit]).offset(params[:offset])
+  end
+
+  def cluster_ranking
     @position = Position.find_by(name: params[:position].split('-').map(&:capitalize).join('-'))
 
-    render json: User.top(params[:id], @position.id, params[:limit]), :include => :subsidiary
+    render json: User.top(params[:id], params[:cluster_id], @position.id, params[:limit]), :include => :subsidiary
   end
 
   def subsidiary_ranking

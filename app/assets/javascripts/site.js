@@ -1,4 +1,4 @@
-angular.module("app", [], ['$compileProvider', function($compileProvider) {
+var app = angular.module("app", [], ['$compileProvider', function($compileProvider) {
   $compileProvider.directive('compile', ['$compile', function($compile) {
     return function(scope, element, attrs) {
       scope.$watch(
@@ -12,8 +12,13 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
       );
     };
   }]);
-}])
-.controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
+}]);
+app.filter('capitalize', function() {
+  return function(input, all) {
+    return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+  }
+});
+app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
   $scope.selected = {
     rules: false,
     ranking: false,
@@ -68,25 +73,60 @@ angular.module("app", [], ['$compileProvider', function($compileProvider) {
     _unselectAll();
     $scope.selected.termsAndConditions = true;
   }
-}]).controller('rankingController', ['$scope', '$http', function ($scope, $http) {
-  $http.get('/api/companies/1/users/ranking?limit=4').success(function (data) {
-    $scope.ranking = data;
-    $http.get('/api/users/1/ranking').success(function (resp) {
-      var include = true;
-      $scope.ranking.forEach(
-        function (e) {
-          if (e.id == resp.id)
-            include = false;
-        }
-      )
-      if (include) $scope.user = resp;
+}]);
+app.controller('rankingController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
+  $("#users-table").css("display", "");
+  $("#subsidiaries-table").css("display", "none");
+  $scope.showSubsidiaries = function() {
+    $http.get('/api/companies/' + session.company.id + '/subsidiaries/ranking?limit=5').success(function (data) {
+      $scope.subsidiaries = data;
+      $("#users-table").css("display", "none");
+      $("#subsidiaries-table").css("display", "");
     });
-  });
-}]).controller('productsController', ['$scope', '$http', function ($scope, $http) {
-  $http.get('/api/companies/1/products').success(function (data) {
-    $scope.products = data;
-  });
-}]).controller('triviaController', ['$scope', '$http', function($scope, $http) {
+  };
+  $scope.showUsers = function() {
+    $http.get('/api/companies/' + session.company.id + '/users/clusters/' + session.cluster + '/ranking?limit=4').success(function (data) {
+      $scope.users = data;
+      $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
+        var include = true;
+        $scope.users.forEach(
+          function (e) {
+            if (e.id == resp.id)
+              include = false;
+          }
+          )
+        if (include) $scope.user = resp;
+        $("#users-table").css("display", "");
+        $("#subsidiaries-table").css("display", "none");
+      });
+    });
+  };
+  $scope.showUsers();
+}]);
+app.controller('productsController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
+  var loadPage = function(page) {
+    var limit = 10;
+    var offset = page * limit;
+    $http.get('/api/companies/' + session.company.id + '/products?limit=' + limit + '&offset=' + offset).success(function (data) {
+      $scope.products = data;
+    });
+  }
+  $scope.index = 0;
+  $scope.nextPage = function() {
+    if ($scope.index < 6) {
+      $scope.index++;
+      loadPage($scope.index);
+    }
+  };
+  $scope.prevPage = function() {
+    if ($scope.index > 0) {
+      $scope.index--;
+      loadPage($scope.index);
+    }
+  };
+  loadPage($scope.index);
+}]);
+app.controller('triviaController', ['$scope', '$http', function($scope, $http) {
   $http.get('/api/trivia/questions/1').success(function (data) {
     $scope.question = data;
   });

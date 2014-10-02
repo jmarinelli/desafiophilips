@@ -19,7 +19,8 @@ Desafiophilips::Application.routes.draw do
     scope 'companies' do
       get '' => 'company#index'
       get ':id/users' => 'company#users'
-      get ':id/users/ranking' => 'company#user_ranking', position: 'vendedor'
+      get ':id/users/clusters/:cluster_id' => 'company#cluster_users'
+      get ':id/users/clusters/:cluster_id/ranking' => 'company#cluster_ranking', position: 'vendedor'
       get ':id/subsidiaries/ranking' => 'company#subsidiary_ranking'
       get ':id/products' => 'product#index'
       get ':id/subsidiaries' => 'subsidiary#index'
