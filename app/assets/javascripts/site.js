@@ -89,9 +89,8 @@ app.controller('rankingController', ['$scope', '$http', 'sessionService', functi
       $scope.users = data;
       $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
         var include = true;
-        if (resp.ranking <= 4)
-          include = false;
-        if (include) $scope.user = resp;
+        if (resp.ranking > 4)
+          $scope.user = resp;
         $("#users-table").css("display", "");
         $("#subsidiaries-table").css("display", "none");
       });

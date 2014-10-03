@@ -1,5 +1,5 @@
 INSERT INTO users VALUES(1, 'Juan José Marinelli', '35267257', '50231', 82, 1, 1, 0);
-INSERT INTO users VALUES(2, 'Maximiliano Rozenfarb', '28233302', '49876', 82, 1, 1, 0);
+INSERT INTO users VALUES(2, 'Maximiliano Rozenfarb', '28233302', '123', 82, 1, 1, 0);
 INSERT INTO users VALUES(3, 'Gabriel Zanzotti', '36872392', '52067', 82, 1, 1, 0);
 INSERT INTO users VALUES(4, 'Agustina Fainguersch', '35964125', '50496', 92, 1, 1, 0);
 INSERT INTO users VALUES(5, 'Lucas Moscovicz', '37276952', '52874', 92, 1, 1, 0);
