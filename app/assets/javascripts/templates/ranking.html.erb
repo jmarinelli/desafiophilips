@@ -6,8 +6,11 @@
 <div ng-controller="rankingController">
   <h3>Ranking</h3>
   <div class="ranking-selector">
-    <input type="radio" name="selector" checked="checked" ng-click="showUsers();">Por Usuarios
-    <input type="radio" name="selector" ng-click="showSubsidiaries();">Por Sucursales
+    <input type="radio" name="selector" checked="checked" ng-click="showUsers();">
+    <span>Por Usuarios</span>
+    <span class="separator">|</span>
+    <input type="radio" name="selector" ng-click="showSubsidiaries();">
+    <span>Por Sucursales</span>
   </div>
   <div id="users-table">
     <table class="ranking">
@@ -24,7 +27,7 @@
         <td>{{ u.points }}</td>
       </tr>
     </table>
-    <table class="ranking ">
+    <table class="ranking me">
       <tr>
         <td>{{ user.ranking ? user.ranking : '...' }}</td>
         <td>{{ user.name | capitalize }}</td>

@@ -1,11 +1,11 @@
 <div ng-controller="productsController">
   <h3>¿Cómo Sumar millas?</h3>
-  <div class="page-control">
-    <srong>
-      <a><span id="prev" ng-click="prevPage(index)">&lt; Prev</span></a>
+  <div class="page-controller-wrapper">
+    <div class="page-control">
+      <a><span id="prev" ng-click="prevPage(index)">Anterior</span></a>
       <span> | Página {{ index + 1 }} | </span>
-      <a><span id="next" ng-click="nextPage(index)">Next &gt;</span></a>
-    </strong>
+      <a><span id="next" ng-click="nextPage(index)">Siguiente</span></a>
+    </div>
   </div>
   <table class="ranking">
     <tr>
