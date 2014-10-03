@@ -6,7 +6,8 @@ body {
 	height: -moz-calc(100% - 20px);
 	height: calc(100% - 20px);
 	height: -webkit-calc(100% - 20px);
-	min-width: 1400px;
+	min-width: 1280px;
+	width: 100%;
 }
 
 .container {
@@ -57,7 +58,7 @@ body {
 		text-shadow: 0px 0px 30px #000;
 	}
 	h3 {
-		font-size: 20px;
+		font-size: 19px;
 		text-shadow: 0px 0px 30px #000;
 	}
 }
@@ -80,6 +81,7 @@ body {
 }
 
 .topbar-menu li {
+	font-size: 14px;
 	display: inline-block;
 	text-align: center;
 	margin: 0 10px;
