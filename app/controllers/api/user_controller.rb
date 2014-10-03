@@ -5,7 +5,7 @@ class Api::UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render json: @user, :methods => :points, :include => [ :subsidiary, :position ], :except => [ :company_id, :subsidiary_id, :position_id ]
+    render json: @user, :methods => [ :points, :answered_questions_ids ], :include => [ :subsidiary, :position ], :except => [ :company_id, :subsidiary_id, :position_id ]
   end
 
   def ranking

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   belongs_to :company
   belongs_to :position
   has_many :sales
+  has_many :answered_questions
+  has_many :questions, through: :answered_questions
 
   def self.top(company, cluster_id, position, limit)
     User.select("users.id, trivia_points, users.name, dni, employee_file_number, coalesce(sum(products.score),0) as points, subsidiary_id")
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
 
   def add_trivia_points(points)
     self.update(:trivia_points => self.trivia_points += points)
+  end
+
+  def answered_questions_ids
+    self.answered_questions.map { |question| question.question_id }
   end
 
   def as_json(options={})

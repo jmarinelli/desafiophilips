@@ -19,7 +19,7 @@
       </tr>
       <tr ng-repeat="u in users">
         <td>{{ $index + 1 }}</td>
-        <td>{{ u.name }}</td>
+        <td>{{ u.name | capitalize }}</td>
         <td>{{ u.subsidiary.name | capitalize }}</td>
         <td>{{ u.points }}</td>
       </tr>
@@ -27,7 +27,7 @@
     <table class="ranking ">
       <tr>
         <td>{{ user.ranking ? user.ranking : '...' }}</td>
-        <td>{{ user.name }}</td>
+        <td>{{ user.name | capitalize }}</td>
         <td>{{ user.subsidiary.name | capitalize }}</td>
         <td class="points">{{ user.points }}</td>
       </tr>
@@ -45,8 +45,8 @@
       <tr ng-repeat="s in subsidiaries">
         <td>{{ $index + 1 }}</td>
         <td>{{ s.name | capitalize }}</td>
-        <td>{{ s.manager.name }}</td>
-        <td>{{ s.sub_manager.name }}</td>
+        <td>{{ s.manager.name ? s.manager.name : '...' | capitalize }}</td>
+        <td>{{ s.sub_manager.name | capitalize }}</td>
         <td>{{ s.points }}</td>
       </tr>
     </table>

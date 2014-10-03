@@ -11,9 +11,11 @@ Desafiophilips::Application.routes.draw do
     end
 
     scope 'trivia' do
+      get 'users/:id/questions' => 'trivia#questions_for_user'
+      get 'users/:id/next-question' => 'trivia#next_question_for_user'
+      post 'users/:id/answers' => 'trivia#answer'
       get 'questions' => 'trivia#index'
       get 'questions/:id' => 'trivia#show'
-      post 'answers' => 'trivia#answer'
     end
 
     scope 'companies' do

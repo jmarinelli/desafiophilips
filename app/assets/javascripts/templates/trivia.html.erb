@@ -6,6 +6,6 @@
 		<p> {{ question.text }}</p>
 	</div>
 	<div class="trivia-answers">
-		<div tabindex="-1" class="trivia-answer" ng-repeat="o in question.options">{{ o.text }}</div>
+		<div tabindex="-1" class="trivia-answer" ng-repeat="o in question.options" ng-click="answer(question.id, o.id)">{{ o.text }}</div>
 	</div>
 </div>

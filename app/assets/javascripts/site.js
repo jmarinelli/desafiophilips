@@ -89,12 +89,8 @@ app.controller('rankingController', ['$scope', '$http', 'sessionService', functi
       $scope.users = data;
       $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
         var include = true;
-        $scope.users.forEach(
-          function (e) {
-            if (e.id == resp.id)
-              include = false;
-          }
-          )
+        if (resp.ranking <= 4)
+          include = false;
         if (include) $scope.user = resp;
         $("#users-table").css("display", "");
         $("#subsidiaries-table").css("display", "none");
@@ -126,8 +122,21 @@ app.controller('productsController', ['$scope', '$http', 'sessionService', funct
   };
   loadPage($scope.index);
 }]);
-app.controller('triviaController', ['$scope', '$http', function($scope, $http) {
-  $http.get('/api/trivia/questions/1').success(function (data) {
-    $scope.question = data;
-  });
+app.controller('triviaController', ['$scope', '$http', 'sessionService', function($scope, $http, session) {
+  var loadQuestion = function() {
+    $http.get('/api/trivia/users/' + session.current_user.id + '/next-question').success(function (data) {
+      $scope.question = data;
+    });
+  };
+  $scope.answer = function(question_id, option_id) {
+    var body = {
+      question_id: question_id,
+      option_id: option_id
+    };
+    $http.post('api/trivia/users/' + session.current_user.id + '/answers', body).success(function (data) {
+      alert(data.result);
+      loadQuestion();
+    });
+  };
+  loadQuestion();
 }]);
