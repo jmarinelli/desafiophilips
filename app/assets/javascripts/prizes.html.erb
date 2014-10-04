@@ -1,28 +1,20 @@
-<div class="text-left">
-	<h3>
-		Premio Mayor
-	</h3>
-	<p>
-		12 Premios Mayores.<br>
-		6 vendedores de salón <br>
-		(1 por cada cluster) que más puntos haya sumado durante todo el programa.<br>
-		6 Gerentes de Sucursal <br>
-		(1 por cada cluster). Resultarán ganadores los gerentes de <br>
-		los vendedores que más puntos hayan sumado durante todo el programa.
-	</p>
-</div>
-
-<div class="text-right">
-	<h3>
-		Premio Menor
-	</h3>
-	<p>
-		24 Premios Menores.<br>
-		Durante el programa, se realizarán cortes semanales <br>
-		(1 por semana) y se premiará a quienes estén liderando cada cluster. <br>
-		Se entregarán 6 premios por semana.<br>
-		Cada corte es independiente al puntaje acumulado.<br>
-		En cada corte se renuevan las chances de ganar!<br>
-		Las millas de todos los cortes suman para el gran premio final.<br>
-	</p>
-</div>
+<div class="prizes-container" ng-controller="prizesController">
+  <div class="page-control">
+    <h2 class="center">
+     <a><span ng-click="majorPrizes()">Premios Mayores</span></a> | 
+     <a><span ng-click="intermediatePrizes()">Premios Intermedios</span></a> | 
+     <a><span ng-click="minorPrizes()">Premios Menores</span></a>
+   </h2>
+ </div>
+ <div class="prizes-info-ctn">
+  <div class="major-prize">
+    <h3>10 VIAJES PARA 2 PERSONAS!</h3>
+    <h1>5 Vendedores de salón (1 por cada cluster)<h1>
+      <p>Resultará ganador el vendedor que más puntos haya sumado durante todo el programa.</p>
+      <h1>5 Gerentes de Sucursal (1 Gerente por cada cluster)</h1>
+      <p>Resultará ganador el Gerente que mayor share de venta Philips haya logrado dentro de su cluster.</p>
+      <h1>Los ganadores podrán elegir el destino de su viaje entre las ciudades de Cataratas, Bariloche, Mendoza, Salta o El Calafate.
+        El viaje contempla una pensión completa para 2 personas en el lugar de alojamiento durante 4 días.</h1>
+      </div>
+    </div>
+  </div>
