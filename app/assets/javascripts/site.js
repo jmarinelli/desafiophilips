@@ -55,6 +55,10 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
       }, 300);
     }, 800);
   };
+  $scope.init = function() {
+    _changeTemplate('rules');
+    $scope.selected.rules = true;
+  };
 }]);
 app.controller('rankingController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
   $("#users-table").css("display", "");
