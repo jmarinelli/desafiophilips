@@ -42,14 +42,16 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
     $(".content-box-ctn").addClass("tinRightOut");
     setTimeout(function(){
       _changeTemplate(tmp);
-      $('.content-box-ctn').removeClass('tinRightOut');
-      $(".content-box-ctn").addClass("slideLeftRetourn");
       setTimeout(function(){
-        $('.content-box-ctn').removeClass('slideLeftRetourn');
-      }, 1000);
-      _unselectAll();
-      $scope.selected[tmp] = true;
-    }, 1100);
+        $('.content-box-ctn').removeClass('tinRightOut');
+        $(".content-box-ctn").addClass("slideLeftRetourn");
+        setTimeout(function(){
+          $('.content-box-ctn').removeClass('slideLeftRetourn');
+        }, 1000);
+        _unselectAll();
+        $scope.selected[tmp] = true;
+      }, 200)
+    }, 800);
   };
 }]);
 app.controller('rankingController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
