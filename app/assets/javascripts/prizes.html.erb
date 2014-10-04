@@ -1,20 +1,30 @@
 <div class="prizes-container" ng-controller="prizesController">
   <div class="page-control">
     <h2 class="center">
-     <a><span ng-click="majorPrizes()">Premios Mayores</span></a> | 
-     <a><span ng-click="intermediatePrizes()">Premios Intermedios</span></a> | 
-     <a><span ng-click="minorPrizes()">Premios Menores</span></a>
+     <a><span class="selector" ng-click="majorPrizes()" ng-class="{selected: selectedPrizes.major}">Premios Mayores</span></a> | 
+     <a><span class="selector" ng-click="intermediatePrizes()" ng-class="{selected: selectedPrizes.intermediate}">Premios Intermedios</span></a> | 
+     <a><span class="selector" ng-click="minorPrizes()" ng-class="{selected: selectedPrizes.minor}">Premios Menores</span></a>
    </h2>
  </div>
  <div class="prizes-info-ctn">
   <div class="major-prize">
     <h3>10 VIAJES PARA 2 PERSONAS!</h3>
-    <h1>5 Vendedores de salón (1 por cada cluster)<h1>
-      <p>Resultará ganador el vendedor que más puntos haya sumado durante todo el programa.</p>
-      <h1>5 Gerentes de Sucursal (1 Gerente por cada cluster)</h1>
-      <p>Resultará ganador el Gerente que mayor share de venta Philips haya logrado dentro de su cluster.</p>
-      <h1>Los ganadores podrán elegir el destino de su viaje entre las ciudades de Cataratas, Bariloche, Mendoza, Salta o El Calafate.
-        El viaje contempla una pensión completa para 2 personas en el lugar de alojamiento durante 4 días.</h1>
-      </div>
-    </div>
+    <h1>5 Vendedores de salón (1 por cada cluster)</h1>
+    <p>Resultará ganador el vendedor que más puntos haya sumado durante todo el programa.</p>
+    <h1>5 Gerentes de Sucursal (1 Gerente por cada cluster)</h1>
+    <p>Resultará ganador el Gerente que mayor share de venta Philips haya logrado dentro de su cluster.</p>
+    <h1>Los ganadores podrán elegir el destino de su viaje entre las ciudades de Cataratas, Bariloche, Mendoza, Salta o El Calafate. <br>El viaje contempla una pensión completa para 2 personas en el lugar de alojamiento durante 4 días.</h1>
   </div>
+  <div class="intermediate-prize invisible">
+    <h3>5 TELEVISORES PHILIPS</h3>
+    <h1>5 Sub Gerentes de Sucursal (1 Sub Gerente por cada cluster, en el caso que haya 2 Sub Gerentes en una misma Sucursal, será 1 televisor para cada uno)</h1><br>
+    <p>Resultará ganador el Sub Gerente que mayor share de venta Philips haya logrado dentro de su cluster.</p>
+  </div>
+  <div class="minor-prize invisible">
+    <h3>PREMIOS SEMANALES | PRODUCTOS PHILIPS</h3>
+    <p>Durante el programa, se realizarán cortes semanales (1 por semana) y se premiará a quienes estén liderando cada cluster. Se entregarán 5 premios por semana.</p>
+    <h1>Cada corte es independiente al puntaje acumulado.</h1>
+    <h1>En cada corte se renuevan las chances de ganar! Las millas de todos los cortes suman para el gran premio final.</h1>
+  </div>
+</div>
+</div>

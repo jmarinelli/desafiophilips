@@ -58,7 +58,7 @@ body {
 		text-shadow: 0px 0px 30px #000;
 	}
 	h3 {
-		font-size: 19px;
+		font-size: 18px;
 		text-shadow: 0px 0px 30px #000;
 	}
 }
@@ -313,6 +313,12 @@ table {
 		cursor: pointer;
 		font-weight: bold;
 	}
+	.selector {
+		opacity: 0.5;
+		&.selected {
+			opacity: 1;
+		}
+	}
 }
 
 .me {
@@ -396,5 +402,8 @@ table {
 	}
 	.prizes-info-ctn {
 		margin-top: 30px;
+		.invisible {
+			display: none;
+		}
 	}
 }

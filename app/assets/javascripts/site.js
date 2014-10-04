@@ -38,22 +38,26 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
       $scope.template = data;
     });
   };
-  $scope.change = function(tmp) {
+  $scope.change = function(tmp, outAnimation, inAnimation) {
     if ($scope.selected[tmp])
       return;
-    $(".content-box").addClass("tinRightOut");
+    $(".content-box").addClass(outAnimation);
     _unselectAll();
     $scope.selected[tmp] = true;
     setTimeout(function(){
+      $('.content-box-ctn').css('display', 'none');
       _changeTemplate(tmp);
+      $('.content-box').removeClass(outAnimation);
+      $(".content-box").addClass(inAnimation);
       setTimeout(function(){
-        $('.content-box').removeClass('tinRightOut');
-        $(".content-box").addClass("slideLeftRetourn");
+        $('.content-box-ctn').css('display', 'block');
+        $('.content-box-ctn').addClass('puffIn');
         setTimeout(function(){
-          $('.content-box').removeClass('slideLeftRetourn');
+          $('.content-box').removeClass(inAnimation);
+          $('.content-box-ctn').removeClass('puffIn');
         }, 1000);
-      }, 300);
-    }, 800);
+      }, 400);
+    }, 700);
   };
   $scope.init = function() {
     _changeTemplate('rules');
@@ -126,15 +130,41 @@ app.controller('triviaController', ['$scope', '$http', 'sessionService', functio
   loadQuestion();
 }]);
 
-app.controller('prizesController', ['$scope', '$compile', function($scope, $compile) {
-  $scope.majorPrizes = function() {
-
+app.controller('prizesController', ['$scope', function($scope) {
+  $scope.selectedPrizes = {
+    major: true,
+    intermediate: false,
+    minor: false
   };
-  $scope.minorPrizes = function() {
-
+  var ctns = { major: $('.major-prize'), intermediate: $('.intermediate-prize'), minor: $('.minor-prize') };
+  var _hideAll = function() {
+    jQuery.each(ctns, function(i, val) {
+      val.addClass("invisible");
+    });
+    for (key in $scope.selectedPrizes) {
+      $scope.selectedPrizes[key] = false;
+    }
+  }
+  $scope.majorPrizes = function() {
+    if ($scope.selectedPrizes.major)
+      return;
+    _hideAll();
+    $scope.selectedPrizes.major = true;
+    ctns.major.removeClass('invisible');
   };
   $scope.intermediatePrizes = function() {
-
+    if ($scope.selectedPrizes.intermediate)
+      return;
+    _hideAll();
+    $scope.selectedPrizes.intermediate = true;
+    ctns.intermediate.removeClass('invisible');
+  };
+  $scope.minorPrizes = function() {
+    if ($scope.selectedPrizes.minor)
+      return;
+    _hideAll();
+    $scope.selectedPrizes.minor = true;
+    ctns.minor.removeClass('invisible');
   };
 }]);
 

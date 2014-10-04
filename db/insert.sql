@@ -32,7 +32,7 @@ INSERT INTO categories VALUES(7, 'visapur', 'Visapur (Cepillo facial)', 20);
 INSERT INTO categories VALUES(8, 'depiladoras', 'Depiladoras Eléctricas', 20);
 INSERT INTO categories VALUES(9, 'planchitas', 'Planchitas de Pelo', 10);
 INSERT INTO categories VALUES(10, 'secador', 'Secador de Pelo', 10);
-INSERT INTO categories VALUES(11, 'multi_styler', 'Modelador/MultiStyler', 10);
+INSERT INTO categories VALUES(11, 'multi_styler', 'MultiStyler', 10);
 INSERT INTO categories VALUES(12, 'batidoras', 'Batidoras', 10);
 INSERT INTO categories VALUES(13, 'licuadoras', 'Licuadoras', 10);
 INSERT INTO categories VALUES(14, 'mixer', 'Mixer', 10);
