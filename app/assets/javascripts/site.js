@@ -39,7 +39,11 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
     });
   };
   $scope.change = function(tmp) {
+    if ($scope.selected[tmp])
+      return;
     $(".content-box-ctn").addClass("tinRightOut");
+    _unselectAll();
+    $scope.selected[tmp] = true;
     setTimeout(function(){
       _changeTemplate(tmp);
       setTimeout(function(){
@@ -48,9 +52,7 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
         setTimeout(function(){
           $('.content-box-ctn').removeClass('slideLeftRetourn');
         }, 1000);
-        _unselectAll();
-        $scope.selected[tmp] = true;
-      }, 400)
+      }, 400);
     }, 800);
   };
 }]);
