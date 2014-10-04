@@ -50,7 +50,7 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
         }, 1000);
         _unselectAll();
         $scope.selected[tmp] = true;
-      }, 200)
+      }, 400)
     }, 800);
   };
 }]);
