@@ -1,39 +1,43 @@
-<div ng-controller="tabsController" class="container" ng-init="rules()">
+<div ng-controller="tabsController" class="container" ng-init="change('rules')">
 	<script>
     <%= render "session_service.js.erb" %>
   </script>
 	<div class="topbar">
 		<div class="topbar-left">
 			<h1>Destino Philips 2014</h1>
-			<h3>Plan de Ventas Día de la Madre</h3>
+			<h3>Plan de Ventas | Día de la Madre</h3>
 		</div>
 		<div class="topbar-right">
 			<ul class="topbar-menu">
-				<li ng-click="rules()" ng-class="{selected: selected.rules}">
+				<li ng-click="change('rules')" ng-class="{selected: selected.rules}">
 					<%= image_tag("daProgram.png") %>
 					<span> El Programa </span>
 				</li>
-				<li ng-click="ranking()" ng-class="{selected: selected.ranking}">
+				<li ng-click="groups()" ng-class="{selected: selected.groups}">
+					<%= image_tag("daProgram.png") %>
+					<span> Grupos </span>
+				</li>
+				<li ng-click="change('ranking')" ng-class="{selected: selected.ranking}">
 					<%= image_tag("rank.png") %>
 					<span> Ranking </span>
 				</li>
-				<li ng-click="points()" ng-class="{selected: selected.points}">
+				<li ng-click="change('points')" ng-class="{selected: selected.points}">
 					<%= image_tag("plane.png") %>
 					<span> Millas </span>
 				</li>
-				<li ng-click="products()" ng-class="{selected: selected.products}">
+				<li ng-click="change('products')" ng-class="{selected: selected.products}">
 					<%= image_tag("cart.png") %>
 					<span> Productos</span>
 				</li>
-				<li ng-click="prizes()" ng-class="{selected: selected.prizes}">
+				<li ng-click="change('prizes')" ng-class="{selected: selected.prizes}">
 					<%= image_tag("prize.png") %>
 					<span> Premios</span>
 				</li>
-				<li ng-click="trivia()" ng-class="{selected: selected.trivia}">
+				<li ng-click="change('trivia')" ng-class="{selected: selected.trivia}">
 					<%= image_tag("quiz.png") %>
 					<span> Trivias</span>
 				</li>
-				<li ng-click="termsAndConditions()" ng-class="{selected: selected.termsAndConditions}">
+				<li ng-click="change('termsAndConditions')" ng-class="{selected: selected.termsAndConditions}">
 					<%= image_tag("check.png") %>
 					<span> Bases y <br>Condiciones </span>
 				</li>
@@ -41,7 +45,7 @@
 		</div>
 	</div>
 	<div class="content-box">
-		<div class="content-box-ctn" compile="template" ng-controller="tabsController">
+		<div class="content-box-ctn magictime" compile="template" ng-controller="tabsController">
 		</div>
 	</div>
 	<%= image_tag("philips-logo.png", class: "philips-logo") %>

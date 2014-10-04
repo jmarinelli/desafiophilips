@@ -1,4 +1,4 @@
-<h3>
+<!-- <h3>
 	Trivia
 </h3>
 <div class="trivia-container" ng-controller="triviaController">
@@ -8,4 +8,17 @@
 	<div class="trivia-answers">
 		<div tabindex="-1" class="trivia-answer" ng-repeat="o in question.options" ng-click="answer(question.id, o.id)">{{ o.text }}</div>
 	</div>
+</div> -->
+
+<h3>
+  ¡Más conoces de Philips, más millas sumas!
+</h3>
+<p>
+  Para reforzar el contenido de las capacitaciones se realizarán 2 trivias durante el programa. Las trivias se publicarán en el microsite del programa y se comunicarán mediante el envío de mailing por parte de Frávega. Las preguntas serán relacionadas al contenido dictado en las capacitaciones de Philips.
+</p>
+
+<div class="trivia-container no-trivia" ng-controller="triviaController">
+<div class="trivia-question">
+  <h1>En este momento no hay ninguna trivia disponible</h1>
+</div>
 </div>

@@ -38,41 +38,19 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
       $scope.template = data;
     });
   };
-  $scope.rules = function() {
-    _changeTemplate("rules");
-    _unselectAll();
-    $scope.selected.rules = true;
-  }
-  $scope.ranking = function() {
-    _changeTemplate("ranking");
-    _unselectAll();
-    $scope.selected.ranking = true;
-  }
-  $scope.points = function() {
-    _changeTemplate("points");
-    _unselectAll();
-    $scope.selected.points = true;
-  }
-  $scope.products = function() {
-    _changeTemplate("products");
-    _unselectAll();
-    $scope.selected.products = true;
-  }
-  $scope.prizes = function() {
-    _changeTemplate("prizes");
-    _unselectAll();
-    $scope.selected.prizes = true;
-  }
-  $scope.trivia = function() {
-    _changeTemplate("trivia");
-    _unselectAll();
-    $scope.selected.trivia = true;
-  }
-  $scope.termsAndConditions = function() {
-    _changeTemplate("termsAndConditions");
-    _unselectAll();
-    $scope.selected.termsAndConditions = true;
-  }
+  $scope.change = function(tmp) {
+    $(".content-box-ctn").addClass("tinRightOut");
+    setTimeout(function(){
+      _changeTemplate(tmp);
+      $('.content-box-ctn').removeClass('tinRightOut');
+      $(".content-box-ctn").addClass("slideLeftRetourn");
+      setTimeout(function(){
+        $('.content-box-ctn').removeClass('slideLeftRetourn');
+      }, 1000);
+      _unselectAll();
+      $scope.selected[tmp] = true;
+    }, 1100);
+  };
 }]);
 app.controller('rankingController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
   $("#users-table").css("display", "");
@@ -138,4 +116,16 @@ app.controller('triviaController', ['$scope', '$http', 'sessionService', functio
     });
   };
   loadQuestion();
+}]);
+
+app.controller('prizesController', ['$scope', '$compile', function($scope, $compile) {
+  $scope.majorPrizes = function() {
+
+  };
+  $scope.minorPrizes = function() {
+
+  };
+  $scope.intermediatePrizes = function() {
+
+  };
 }]);

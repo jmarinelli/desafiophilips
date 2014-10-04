@@ -133,6 +133,9 @@ body {
 		font-size: 22px;
 		margin-bottom: 20px;
 	}
+	h1 {
+		line-height: 25px;
+	}
 	p {
 		font-size: 16px;
 		margin-bottom: 10px;
@@ -235,6 +238,9 @@ table {
 .trivia-container {
 	text-align: center;
 	color: #444;
+	&.no-trivia {
+		margin-top: 40px;
+	}
 	.trivia-question {
 		padding: 20px 0px;
 		width: 75%;
@@ -318,4 +324,53 @@ table {
 	rgba(225,225,225,0.5) 10px,
 	rgba(225,225,225,0.5) 20px
 	);
+}
+
+.prizes-container {
+	.center {
+		text-align: center;
+	}
+	.prizes-info-ctn {
+		margin-top: 30px;
+	}
+}
+
+.ranking-test {
+	* {
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  background: #333;
+}
+ 
+div {
+  width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+}
+ 
+ul {
+  list-style-type: none;
+}
+ 
+li img {
+  float: left;
+  margin: 10px;
+  border: 5px solid #fff;
+  max-width: 150px;
+  max-height: 150px;
+ 
+  -webkit-transition: box-shadow 0.5s ease;
+  -moz-transition: box-shadow 0.5s ease;
+  -o-transition: box-shadow 0.5s ease;
+  -ms-transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+}
+ 
+li img:hover {
+  -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+  box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+}
 }
