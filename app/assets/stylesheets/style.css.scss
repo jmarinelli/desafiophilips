@@ -326,6 +326,70 @@ table {
 	);
 }
 
+#f1_container {
+	border-radius: 5px;
+	float: left;
+  position: relative;
+  margin: 10px 2px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  img {
+  	border-radius: 5px;
+  	width: 150px;
+  	height: 150px;
+  }
+}
+#f1_container {
+  perspective: 1000;
+}
+#f1_card {
+	border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+.face {
+	border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.face.back {
+	border-radius: 5px;
+	.giladita {
+		border-radius: 5px;
+		position: absolute;
+		background-color: white;
+		opacity: 0.65;
+		width: 100%;
+		height: 100%;
+	}
+	.giladita-arriba {
+		border-radius: 5px;
+		position: absolute;
+		opacity: 1;
+		padding: 10px;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+	background-size: 150px 150px;
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  color: black;
+  text-align: center;
+  background-color: #FFF;
+  opacity: 0.75;
+}
+
 .prizes-container {
 	.center {
 		text-align: center;
@@ -333,44 +397,4 @@ table {
 	.prizes-info-ctn {
 		margin-top: 30px;
 	}
-}
-
-.ranking-test {
-	* {
-  margin: 0;
-  padding: 0;
-}
- 
-body {
-  background: #333;
-}
- 
-div {
-  width: 900px;
-  margin: 0 auto;
-  overflow: auto;
-}
- 
-ul {
-  list-style-type: none;
-}
- 
-li img {
-  float: left;
-  margin: 10px;
-  border: 5px solid #fff;
-  max-width: 150px;
-  max-height: 150px;
- 
-  -webkit-transition: box-shadow 0.5s ease;
-  -moz-transition: box-shadow 0.5s ease;
-  -o-transition: box-shadow 0.5s ease;
-  -ms-transition: box-shadow 0.5s ease;
-  transition: box-shadow 0.5s ease;
-}
- 
-li img:hover {
-  -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
-  box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
-}
 }

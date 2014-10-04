@@ -41,18 +41,18 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
   $scope.change = function(tmp) {
     if ($scope.selected[tmp])
       return;
-    $(".content-box-ctn").addClass("tinRightOut");
+    $(".content-box").addClass("tinRightOut");
     _unselectAll();
     $scope.selected[tmp] = true;
     setTimeout(function(){
       _changeTemplate(tmp);
       setTimeout(function(){
-        $('.content-box-ctn').removeClass('tinRightOut');
-        $(".content-box-ctn").addClass("slideLeftRetourn");
+        $('.content-box').removeClass('tinRightOut');
+        $(".content-box").addClass("slideLeftRetourn");
         setTimeout(function(){
-          $('.content-box-ctn').removeClass('slideLeftRetourn');
+          $('.content-box').removeClass('slideLeftRetourn');
         }, 1000);
-      }, 400);
+      }, 300);
     }, 800);
   };
 }]);
@@ -132,4 +132,11 @@ app.controller('prizesController', ['$scope', '$compile', function($scope, $comp
   $scope.intermediatePrizes = function() {
 
   };
+}]);
+
+app.controller('categoriesController', ['$scope', '$http', function($scope, $http) {
+  $http.get('/api/categories').success(function (data) {
+    $scope.categories = data;
+    $scope.imgs = images;
+  });
 }]);

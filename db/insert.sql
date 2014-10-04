@@ -22,6 +22,21 @@ INSERT INTO positions VALUES(1, 'Vendedor');
 INSERT INTO positions VALUES(2, 'Sub-Gerente');
 INSERT INTO positions VALUES(3, 'Gerente');
 
+INSERT INTO categories VALUES(1, 'lumea', 'Philips Lumea', 30);
+INSERT INTO categories VALUES(2, 'saeco', 'Cafeteras Philips Saeco', 30);
+INSERT INTO categories VALUES(3, 'airfryer', 'Philips Airfryer', 25);
+INSERT INTO categories VALUES(4, 'soup_maker', 'SoupMaker', 20);
+INSERT INTO categories VALUES(5, 'senseo', 'Cafeteras Philips Senseo', 20);
+INSERT INTO categories VALUES(6, 'espumadores', 'Espumadores', 20);
+INSERT INTO categories VALUES(7, 'visapur', 'Visapur (Cepillo facial)', 20);
+INSERT INTO categories VALUES(8, 'depiladoras', 'Depiladoras Eléctricas', 20);
+INSERT INTO categories VALUES(9, 'planchitas', 'Planchitas de Pelo', 10);
+INSERT INTO categories VALUES(10, 'secador', 'Secador de Pelo', 10);
+INSERT INTO categories VALUES(11, 'multi_styler', 'Modelador/MultiStyler', 10);
+INSERT INTO categories VALUES(12, 'batidoras', 'Batidoras', 10);
+INSERT INTO categories VALUES(13, 'licuadoras', 'Licuadoras', 10);
+INSERT INTO categories VALUES(14, 'mixer', 'Mixer', 10);
+
 INSERT INTO products VALUES(1, 'BAT.PHILIPS MANUAL HR1562/06', '80423', 1, 10);
 INSERT INTO products VALUES(2, 'BAT.PHILIPS HR-1564 PIE', '83052', 1, 10);
 INSERT INTO products VALUES(3, 'CAF.PHILIPS SENS.HD7811/68 NEG', '11351', 1, 20);

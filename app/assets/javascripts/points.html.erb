@@ -1,3 +1,25 @@
-<div class="prizes-container" ng-controller="prizesController">
-  Hola millas  
+<div class="prizes-container" ng-controller="categoriesController">
+  <h3>¿Cómo participar?</h3>
+  <p>Sumando puntos por venta de productos de Cocina, Cuidado Personal Femenino y Café.</p>
+  <div class="categories">
+    <ul>
+      <li ng-repeat="c in categories">
+        <div id="f1_container">
+        <div id="f1_card" class="shadow">
+        <div class="front face">
+          <a><img ng-src="{{imgs[c.code]}}"/></a>
+        </div>
+        <div class="back face center" style="background-image: url('{{imgs[c.code]}}')">
+          <div class="giladita">
+          </div>
+          <div class="giladita-arriba">
+            <p>{{ c.name }}</p>
+            <p>{{ c.points }} puntos</p>
+          </div>
+        </div>
+        </div>
+        </div>
+      </li>
+    </ul>
+</div>
 </div>
