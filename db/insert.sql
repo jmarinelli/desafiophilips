@@ -34,8 +34,9 @@ INSERT INTO categories VALUES(9, 'planchitas', 'Planchitas de Pelo Philips', 10)
 INSERT INTO categories VALUES(10, 'secador', 'Secadores de Pelo Philips', 10);
 INSERT INTO categories VALUES(11, 'multi_styler', 'Modeladores de Cabello Philips', 10);
 INSERT INTO categories VALUES(12, 'batidoras', 'Batidoras Philips', 10);
-INSERT INTO categories VALUES(13, 'licuadoras', 'Licuadoras Philips', 10);
-INSERT INTO categories VALUES(14, 'mixer', 'Mixers Philips', 10);
+INSERT INTO categories VALUES(13, '', '', 0);
+INSERT INTO categories VALUES(14, 'licuadoras', 'Licuadoras Philips', 10);
+INSERT INTO categories VALUES(15, 'mixer', 'Mixers Philips', 10);
 
 INSERT INTO products VALUES(1, 'BAT.PHILIPS MANUAL HR1562/06', '80423', 1, 10);
 INSERT INTO products VALUES(2, 'BAT.PHILIPS HR-1564 PIE', '83052', 1, 10);

@@ -18,6 +18,20 @@ app.filter('capitalize', function() {
     return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
   }
 });
+
+app.directive('ngIf', function() {
+  return {
+    link: function(scope, element, attrs) {
+      if(scope.$eval(attrs.ngIf)) {
+        // remove '<div ng-if...></div>'
+        element.replaceWith(element.children())
+      } else {
+        element.replaceWith(' ')
+      }
+    }
+  }
+});
+
 app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', function ($scope, $http, $sce, $compile) {
   $scope.selected = {
     rules: false,
