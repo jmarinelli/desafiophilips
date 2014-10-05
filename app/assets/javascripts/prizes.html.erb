@@ -1,12 +1,22 @@
 <div class="prizes-container" ng-controller="prizesController">
   <h3>PREMIOS</h3>
-  <div class="page-control">
-    <h2 class="center">
-     <a><span class="selector" ng-click="majorPrizes()" ng-class="{selected: selectedPrizes.major}">Premios Mayores</span></a> | 
-     <a><span class="selector" ng-click="intermediatePrizes()" ng-class="{selected: selectedPrizes.intermediate}">Premios Intermedios</span></a> | 
-     <a><span class="selector" ng-click="minorPrizes()" ng-class="{selected: selectedPrizes.minor}">Premios Semanales</span></a>
-   </h2>
- </div>
+  <div class="prize-type-selector">
+    <div class="page-control left">
+      <h2 class="center">
+       <a><span class="selector" ng-click="majorPrizes()" ng-class="{selected: selectedPrizes.major}">Premios Mayores</span></a>
+     </h2>
+   </div>
+   <div class="page-control left">
+      <h2 class="center">
+       <a><span class="selector" ng-click="intermediatePrizes()" ng-class="{selected: selectedPrizes.intermediate}">Premios Intermedios</span></a>
+     </h2>
+   </div>
+   <div class="page-control left">
+      <h2 class="center">
+       <a><span class="selector" ng-click="minorPrizes()" ng-class="{selected: selectedPrizes.minor}">Premios Semanales</span></a>
+     </h2>
+   </div>
+  </div>
  <div class="prizes-info-ctn">
   <div class="major-prize">
     <%= image_tag('boeing.png', :class => 'plane-image')%>
@@ -47,7 +57,7 @@
       </li>
       <li class="minor-item">
         <h1 class="week">3era Semana</h1>
-        <%= image_tag('Baja/hd9220.jpg')%>
+        <%= image_tag('Baja/airfryer.jpg')%>
         <div class="title">
           <div class="text">
             <h1>5 Philips AirFryer</h1>
