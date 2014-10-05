@@ -12,8 +12,8 @@ class SiteController < ApplicationController
   	end
   end
   def home
-    @company = Company.find(1)
-    @user = User.find(1)
+    @company = Company.find('1')
+    @user = User.find('1')
     @cluster = Subsidiary.find(@user.subsidiary_id).cluster
   end
 end
