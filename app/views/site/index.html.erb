@@ -4,7 +4,7 @@
 </div>
 <div class="login-wrapper">
   <div class= "login-form">
-    <%= form_tag(:action => 'login') do %>
+   <!-- <%= form_tag(:action => 'login') do %>
       <p>
         DNI:
       </p> 
@@ -14,8 +14,11 @@
       </p> 
       <%= text_field_tag :employee_file_number %>
       <%= submit_tag("Iniciar") %>
-    <% end %>
-  </div>
+    <% end %>-->
+    <div class="login-unavailable">
+      <h3>La web estará disponible a partir del 6/10.<br><br> Te esperamos!</h3>
+    </div>
+  </div> 
 </div>
 <%= image_tag("login-world.png", class: "login-world") %>
 <%= image_tag("login.png", class: "login-bg") %>

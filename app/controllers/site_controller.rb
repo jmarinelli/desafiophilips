@@ -12,11 +12,8 @@ class SiteController < ApplicationController
   	end
   end
   def home
-    unless session[:user_id] and session[:company_id]
-      redirect_to :action => 'index'
-    end
-    @company = Company.find(session[:company_id])
-    @user = User.find(session[:user_id])
+    @company = Company.find(1)
+    @user = User.find(1)
     @cluster = Subsidiary.find(@user.subsidiary_id).cluster
   end
 end
