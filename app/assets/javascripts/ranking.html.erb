@@ -5,51 +5,56 @@
 </div> -->
 <div ng-controller="rankingController">
   <h3>Ranking</h3>
-  <div class="ranking-selector">
-    <input type="radio" name="selector" checked="checked" ng-click="showUsers();">
-    <span>Por Usuarios</span>
-    <span class="separator">|</span>
-    <input type="radio" name="selector" ng-click="showSubsidiaries();">
-    <span>Por Sucursales</span>
+  <div class="ranking-unavailable">
+    <div class="trivia-question"><h1>Las ventas comienzan a computarse a partir del 4 de octubre. Podrás ver el ranking a partir de la primera carga de puntos.</h1></div>
   </div>
-  <div id="users-table">
-    <table class="ranking">
-      <tr>
-        <th></th>
-        <th>Vendedor</th>
-        <th>Sucursal</th>
-        <th class="points">Puntos</th>
-      </tr>
-      <tr ng-repeat="u in users">
-        <td>{{ $index + 1 }}</td>
-        <td>{{ u.name | capitalize }}</td>
-        <td>{{ u.subsidiary.name | capitalize }}</td>
-        <td>{{ u.points }}</td>
-      </tr>
-      <tr class="me">
-        <td>{{ user.ranking ? user.ranking : '...' }}</td>
-        <td>{{ user.name | capitalize }}</td>
-        <td>{{ user.subsidiary.name | capitalize }}</td>
-        <td class="points">{{ user.points }}</td>
-      </tr>
-    </table>
-  </div>
-  <div id="subsidiaries-table">
-    <table class="ranking subsidiaries" ng-controller="rankingController">
-      <tr>
-        <th></th>
-        <th>Sucursal</th>
-        <th>Gerente</th>
-        <th>Sub-Gerente</th>
-        <th class="points">Puntos</th>
-      </tr>
-      <tr ng-repeat="s in subsidiaries">
-        <td>{{ $index + 1 }}</td>
-        <td>{{ s.name | capitalize }}</td>
-        <td>{{ s.manager.name ? s.manager.name : '...' | capitalize }}</td>
-        <td>{{ s.sub_manager.name | capitalize }}</td>
-        <td>{{ s.points }}</td>
-      </tr>
-    </table>
+  <div class="ranking-ctn">
+    <div class="ranking-selector">
+      <input type="radio" name="selector" checked="checked" ng-click="showUsers();">
+      <span>Por Usuarios</span>
+      <span class="separator">|</span>
+      <input type="radio" name="selector" ng-click="showSubsidiaries();">
+      <span>Por Sucursales</span>
+    </div>
+    <div id="users-table">
+      <table class="ranking">
+        <tr>
+          <th></th>
+          <th>Vendedor</th>
+          <th>Sucursal</th>
+          <th class="points">Puntos</th>
+        </tr>
+        <tr ng-repeat="u in users">
+          <td>{{ $index + 1 }}</td>
+          <td>{{ u.name | capitalize }}</td>
+          <td>{{ u.subsidiary.name | capitalize }}</td>
+          <td>{{ u.points }}</td>
+        </tr>
+        <tr class="me">
+          <td>{{ user.ranking ? user.ranking : '...' }}</td>
+          <td>{{ user.name | capitalize }}</td>
+          <td>{{ user.subsidiary.name | capitalize }}</td>
+          <td class="points">{{ user.points }}</td>
+        </tr>
+      </table>
+    </div>
+    <div id="subsidiaries-table">
+      <table class="ranking subsidiaries" ng-controller="rankingController">
+        <tr>
+          <th></th>
+          <th>Sucursal</th>
+          <th>Gerente</th>
+          <th>Sub-Gerente</th>
+          <th class="points">Puntos</th>
+        </tr>
+        <tr ng-repeat="s in subsidiaries">
+          <td>{{ $index + 1 }}</td>
+          <td>{{ s.name | capitalize }}</td>
+          <td>{{ s.manager.name ? s.manager.name : '...' | capitalize }}</td>
+          <td>{{ s.sub_manager.name | capitalize }}</td>
+          <td>{{ s.points }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

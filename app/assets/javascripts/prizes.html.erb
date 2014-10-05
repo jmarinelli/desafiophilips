@@ -8,6 +8,7 @@
  </div>
  <div class="prizes-info-ctn">
   <div class="major-prize">
+    <%= image_tag('boeing.png', :class => 'plane-image')%>
     <h3>10 VIAJES PARA 2 PERSONAS!</h3>
     <h1>5 Vendedores de salón (1 por cada cluster)</h1>
     <p>Resultará ganador el vendedor que más puntos haya sumado durante todo el programa.</p>
@@ -17,12 +18,51 @@
   </div>
   <div class="intermediate-prize invisible">
     <h3>5 TELEVISORES PHILIPS</h3>
-    <h1>5 Sub Gerentes de Sucursal (1 Sub Gerente por cada cluster, en el caso que haya 2 Sub Gerentes en una misma Sucursal, será 1 televisor para cada uno)</h1><br>
-    <p>Resultará ganador el Sub Gerente que mayor share de venta Philips haya logrado dentro de su cluster.</p>
+    <h1>5 Sub Gerentes de Sucursal (1 Sub Gerente por cada cluster, en el caso que<br> haya 2 Sub Gerentes en una misma Sucursal, será 1 televisor para cada uno)</h1><br>
+    <p>Resultará ganador el Sub Gerente que mayor share de venta Philips haya logrado<br> dentro de su cluster.</p>
+    <%= image_tag('tv.png', :class => 'tv-image')%>
   </div>
   <div class="minor-prize invisible">
     <h3>PREMIOS SEMANALES | PRODUCTOS PHILIPS</h3>
     <p>Durante el programa, se realizarán cortes semanales (1 por semana) y se premiará a quienes estén liderando cada cluster. Se entregarán 5 premios por semana.</p>
+    <ul class="minor-prizes-list">
+      <li class="minor-item">
+        <h1 class="week">1era Semana</h1>
+        <%= image_tag('Baja/depiladoras.jpg')%>
+        <div class="title">
+          <div class="text">
+            <h1>5 Depliadoras Philips Satin Perfect</h1>
+          </div>
+        </div>
+      </li>
+      <li class="minor-item">
+        <h1 class="week">2da Semana</h1>
+        <%= image_tag('Baja/soupmaker.jpg')%>
+        <div class="title">
+          <div class="text">
+            <h1>5 Philips Soup Maker</h1>
+          </div>
+        </div>
+      </li>
+      <li class="minor-item">
+        <h1 class="week">3era Semana</h1>
+        <%= image_tag('Baja/hd9220.jpg')%>
+        <div class="title">
+          <div class="text">
+            <h1>5 Philips AirFryer</h1>
+          </div>
+        </div>
+      </li>
+      <li class="minor-item">
+        <h1 class="week">4ta Semana</h1>
+        <%= image_tag('Baja/depiladoras.jpg')%>
+        <div class="title">
+          <div class="text">
+            <h1>5 Depliadoras Philips Satin Perfect</h1>
+          </div>
+        </div>
+      </li>
+    </ul>
     <h1>Cada corte es independiente al puntaje acumulado.</h1>
     <h1>En cada corte se renuevan las chances de ganar! Las millas de todos los cortes suman para el gran premio final.</h1>
   </div>

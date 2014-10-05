@@ -10,6 +10,12 @@ body {
 	width: 100%;
 }
 
+.welcome-logo {
+	position: relative;
+	top: 8px;
+	margin-left: 8px;
+}
+
 .container {
 	margin: 20px;
 	background: -webkit-linear-gradient(left top, #006BA2, #000); /* For Safari 5.1 to 6.0 */
@@ -113,6 +119,7 @@ body {
 .content-box {
 	background: rgba(250, 206, 206, 0.7);
 	box-shadow: 0px 0px 20px 2px rgba(250, 206, 206, 0.6);
+	border-radius: 10px;
 	margin: 0 auto;
 	margin-top: 30px;
 	padding: 5px;
@@ -120,6 +127,7 @@ body {
 	width: 60%;
 	min-height: 50%;
 	max-height: calc(100% - 250px);
+	min-width: 845px;
 	height: 60%;
 	position: relative;
 	z-index: 1;
@@ -220,7 +228,7 @@ table {
 	color: #444;
 	td, th {
 		padding: 10px;
-		border: 1px solid #FFF;
+		border: 1px outset #FFF;
 	}
 	.points {
 		width: 10%;
@@ -402,8 +410,69 @@ table {
 	}
 	.prizes-info-ctn {
 		margin-top: 30px;
+		.plane-image {
+			height: 100px;
+			float: right;
+			position: relative;
+			top: -75px;
+			margin-right: 35px;
+		}
+		.tv-image {
+			height: 160px;
+			float: right;
+			position: relative;
+			top: -140px;
+		}
 		.invisible {
 			display: none;
 		}
+		.minor-prizes-list {
+			height: 300px;
+			width: 660px;
+			margin-top: 25px;
+			margin-left: auto;
+			margin-right: auto;
+			.minor-item {
+				float: left;
+				margin-right: 15px;
+				height: 150px;
+				width: 150px;
+				.week {
+					text-align: center;
+					margin-bottom: 5px;
+					font-size: 18px;
+				}
+				.title {
+					background-color: lightgrey;
+					text-align: center;
+					height: 55px;
+					margin-top: 10px;
+					border-radius: 10px;
+					padding: 5px;
+					.text {
+						height:	50px;
+					}
+				}
+				img {
+					border-radius: 5px;
+					height: 150px;
+					width: 150px;
+				}
+			}
+		}
 	}
+}
+
+.ranking-ctn {
+	display: none;
+}
+
+.ranking-unavailable {
+	text-align: center;
+	padding: 20px 10px;
+	width: 75%;
+	background: rgba(255, 255, 255, 0.6);
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 10px;
 }
