@@ -28,6 +28,7 @@ Desafiophilips::Application.routes.draw do
       get ':id/subsidiaries' => 'subsidiary#index'
     end
 
+    get 'clusters/:id/subsidiaries' => 'subsidiary#by_cluster'
     get 'categories' => 'category#index'
   end
   # The priority is based upon order of creation: first created -> highest priority.

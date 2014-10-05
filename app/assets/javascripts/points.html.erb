@@ -2,7 +2,7 @@
   <h3>¿Cómo participar?</h3>
   <p>Sumando puntos por venta de productos de Cocina, Cuidado Personal Femenino y Café.</p>
   <div class="categories">
-    <ul>
+    <ul class="products-list">
       <li ng-repeat="c in categories">
         <div id="f1_container">
         <div id="f1_card" class="shadow">
@@ -13,8 +13,8 @@
           <div class="giladita">
           </div>
           <div class="giladita-arriba">
-            <strong><p>{{ c.name }}</p></strong>
-            <strong><p>{{ c.points }} puntos</p></strong>
+            <div class="up"><strong>{{ c.name }}</strong></div>
+            <div class="down"><strong>{{ c.points }} puntos</strong></div>
           </div>
         </div>
         </div>

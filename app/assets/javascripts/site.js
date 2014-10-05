@@ -174,3 +174,29 @@ app.controller('categoriesController', ['$scope', '$http', function($scope, $htt
     $scope.imgs = images;
   });
 }]);
+
+app.controller('groupsController', ['$scope', '$http', function ($scope, $http) {
+  var loadCluster = function(cluster) {
+    $http.get('/api/clusters/' + cluster + '/subsidiaries').success(function (data) {
+      $scope.subsidiaries = data;
+    });
+  }
+  var clusters = ['A', 'B', 'C', 'D', 'E'];
+  var index = 0;
+  $scope.cluster = clusters[index];
+  $scope.nextPage = function() {
+    if (index < 4) {
+      index++;
+      loadCluster(clusters[index]);
+      $scope.cluster = clusters[index];
+    }
+  };
+  $scope.prevPage = function() {
+    if (index > 0) {
+      index--;
+      loadCluster(clusters[index]);
+      $scope.cluster = clusters[index];
+    }
+  };
+  loadCluster($scope.cluster);
+}]);

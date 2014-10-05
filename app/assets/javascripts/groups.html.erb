@@ -1,21 +1,20 @@
-<div ng-controller="productsController">
-  <h3>PRODUCTOS</h3>
-  <h2>¿Cómo sumar millas?</h2>
+<div ng-controller="groupsController">
+  <h3>Grupos</h3>
   <div class="page-controller-wrapper">
     <div class="page-control">
       <a><span id="prev" ng-click="prevPage(index)">Anterior</span></a>
-      <span> | Página {{ index + 1 }} | </span>
+      <span> | Grupo {{ cluster }} | </span>
       <a><span id="next" ng-click="nextPage(index)">Siguiente</span></a>
     </div>
   </div>
   <table class="ranking">
     <tr>
-      <th>Producto</th>
-      <th>Puntos</th>
+      <th>Sucursal</th>
+      <th>Código</th>
     </tr>
-    <tr ng-repeat="p in products">
-      <td>{{ p.name }}</td>
-      <td>{{ p.score }}</td>		
+    <tr ng-repeat="s in subsidiaries">
+      <td>{{ s.name | capitalize }}</td>
+      <td>{{ s.id }}</td>    
     </tr>
   </table>
 </div>

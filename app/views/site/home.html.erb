@@ -13,10 +13,10 @@
 					<%= image_tag("daProgram.png") %>
 					<span> El Programa </span>
 				</li>
-				<!-- <li ng-click="groups()" ng-class="{selected: selected.groups}">
-					<%= image_tag("daProgram.png") %>
+				<li ng-click="change('groups', 'tinUpOut', 'boingInUp')" ng-class="{selected: selected.groups}">
+					<%= image_tag("groups.png") %>
 					<span> Grupos </span>
-				</li> -->
+				</li>
 				<li ng-click="change('ranking', 'tinUpOut', 'boingInUp')" ng-class="{selected: selected.ranking}">
 					<%= image_tag("rank.png") %>
 					<span> Ranking </span>
@@ -36,10 +36,6 @@
 				<li ng-click="change('trivia', 'tinUpOut', 'boingInUp')" ng-class="{selected: selected.trivia}">
 					<%= image_tag("quiz.png") %>
 					<span> Trivias</span>
-				</li>
-				<li ng-click="change('termsAndConditions', 'tinUpOut', 'boingInUp')" ng-class="{selected: selected.termsAndConditions}">
-					<%= image_tag("check.png") %>
-					<span> Bases y <br>Condiciones </span>
 				</li>
 			</ul>
 		</div>
