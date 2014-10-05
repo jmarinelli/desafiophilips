@@ -103,11 +103,53 @@ app.controller('rankingController', ['$scope', '$http', 'sessionService', functi
   $scope.showUsers();
 }]);
 app.controller('productsController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
+  $('.product-img-right').addClass('puffIn');
+  $('.product-img-left').addClass('puffIn');
+  var productImages = [
+    {
+      left: 'lumea',
+      right: 'saeco'
+    },
+    {
+      left: 'soup_maker',
+      right: 'visapur'
+    },
+    {
+      left: 'depiladoras',
+      right: 'multi_styler'
+    },
+    {
+      left: 'batidoras',
+      right: 'mixer'
+    },
+    {
+      left: 'senseo',
+      right: 'airfryer'
+    },
+    {
+      left: 'secador',
+      right: 'espumadores'
+    },
+    {
+      left: 'licuadoras',
+      right: 'planchitas'
+    }
+  ];
   var loadPage = function(page) {
+    $('.product-img-right').removeClass('puffIn');
+    $('.product-img-left').removeClass('puffIn');
+    $('.product-img-right').css('display', 'none');
+    $('.product-img-left').css('display', 'none');
     var limit = 10;
     var offset = page * limit;
     $http.get('/api/companies/' + session.company.id + '/products?limit=' + limit + '&offset=' + offset).success(function (data) {
       $scope.products = data;
+      $('.product-img-right').css('display', 'block');
+      $('.product-img-left').css('display', 'block');
+      $('.product-img-right').addClass('puffIn');
+      $('.product-img-left').addClass('puffIn');
+      $scope.imgRight = images[productImages[page].left];
+      $scope.imgLeft = images[productImages[page].right];
     });
   }
   $scope.index = 0;

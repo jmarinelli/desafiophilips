@@ -1,6 +1,12 @@
 <div ng-controller="productsController">
   <h3>PRODUCTOS</h3>
   <h2>¿Cómo sumar millas?</h2>
+  <div class="product-img-right magictime">
+    <img ng-src="{{imgRight}}"/>
+  </div>
+  <div class="product-img-left magictime">
+    <img ng-src="{{imgLeft}}"/>
+  </div>
   <div class="page-controller-wrapper">
     <div class="page-control">
       <a><span id="prev" ng-click="prevPage(index)">Anterior</span></a>
