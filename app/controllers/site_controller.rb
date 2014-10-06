@@ -12,8 +12,12 @@ class SiteController < ApplicationController
   	end
   end
   def home
-    @company = Company.find_by(id: '1')
-    @user = User.find_by(id: '1')
-    @cluster = Subsidiary.find(@user.subsidiary_id).cluster
+    if session[:company_id] and session[:user_id]
+      @company = Company.find_by(id: session[:company_id])
+      @user = User.find_by(id: session[:user_id])
+      @cluster = Subsidiary.find(@user.subsidiary_id).cluster
+    else
+      redirect_to :action => 'index', :controller => 'site'
+    end
   end
 end
