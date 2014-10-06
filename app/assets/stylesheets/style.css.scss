@@ -349,13 +349,14 @@ table {
 	);
 }
 
-.product-img-right {
+.product-img-down {
 	display: none;
+	background-color: lightgrey;
 	width: 100px;
 	height: 100px;
 	position: absolute;
-	top: 20px;
-	left: 633px;
+	top: 220px;
+	left: 8px;
 	img {
 		width: 100px;
 		height: 100px;
@@ -364,12 +365,13 @@ table {
 	}
 }
 
-.product-img-left {
+.product-img-up {
 	display: none;
+	background-color: lightgrey;
 	width: 100px;
 	height: 100px;
 	position: absolute;
-	top: 140px;
+	top: 100px;
 	left: 8px;
 	img {
 		width: 100px;

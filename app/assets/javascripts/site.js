@@ -103,8 +103,8 @@ app.controller('rankingController', ['$scope', '$http', 'sessionService', functi
   $scope.showUsers();
 }]);
 app.controller('productsController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
-  $('.product-img-right').addClass('puffIn');
-  $('.product-img-left').addClass('puffIn');
+  $('.product-img-up').addClass('puffIn');
+  $('.product-img-down').addClass('puffIn');
   var productImages = [
     {
       left: 'lumea',
@@ -136,18 +136,18 @@ app.controller('productsController', ['$scope', '$http', 'sessionService', funct
     }
   ];
   var loadPage = function(page) {
-    $('.product-img-right').removeClass('puffIn');
-    $('.product-img-left').removeClass('puffIn');
-    $('.product-img-right').css('display', 'none');
-    $('.product-img-left').css('display', 'none');
+    $('.product-img-up').removeClass('puffIn');
+    $('.product-img-down').removeClass('puffIn');
+    $('.product-img-up').css('display', 'none');
+    $('.product-img-down').css('display', 'none');
     var limit = 10;
     var offset = page * limit;
     $http.get('/api/companies/' + session.company.id + '/products?limit=' + limit + '&offset=' + offset).success(function (data) {
       $scope.products = data;
-      $('.product-img-right').css('display', 'block');
-      $('.product-img-left').css('display', 'block');
-      $('.product-img-right').addClass('puffIn');
-      $('.product-img-left').addClass('puffIn');
+      $('.product-img-up').css('display', 'block');
+      $('.product-img-down').css('display', 'block');
+      $('.product-img-up').addClass('puffIn');
+      $('.product-img-down').addClass('puffIn');
       $scope.imgRight = images[productImages[page].left];
       $scope.imgLeft = images[productImages[page].right];
     });
