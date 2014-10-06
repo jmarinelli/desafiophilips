@@ -107,32 +107,32 @@ app.controller('productsController', ['$scope', '$http', 'sessionService', funct
   $('.product-img-down').addClass('puffIn');
   var productImages = [
     {
-      left: 'lumea',
-      right: 'saeco'
+      left: 'saeco',
+      right: 'lumea'
     },
     {
-      left: 'soup_maker',
-      right: 'visapur'
-    },
-    {
-      left: 'depiladoras',
-      right: 'multi_styler'
-    },
-    {
-      left: 'batidoras',
-      right: 'mixer'
+      left: 'visapur',
+      right: 'depiladoras'
     },
     {
       left: 'senseo',
-      right: 'airfryer'
-    },
-    {
-      left: 'secador',
       right: 'espumadores'
     },
     {
-      left: 'licuadoras',
+      left: 'secador',
       right: 'planchitas'
+    },
+    {
+      left: 'multi_styler',
+      right: ''
+    },
+    {
+      left: 'batidoras',
+      right: 'licuadoras'
+    },
+    {
+      left: 'mixer',
+      right: ''
     }
   ];
   var loadPage = function(page) {
@@ -150,6 +150,8 @@ app.controller('productsController', ['$scope', '$http', 'sessionService', funct
       $('.product-img-down').addClass('puffIn');
       $scope.imgRight = images[productImages[page].left];
       $scope.imgLeft = images[productImages[page].right];
+      if (!images[productImages[page].right])
+        $('.product-img-down').css('display', 'none');
     });
   }
   $scope.index = 0;
