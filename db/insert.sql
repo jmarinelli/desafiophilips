@@ -34,9 +34,9 @@ INSERT INTO categories VALUES(9, 'planchitas', 'Planchitas de Pelo Philips', 10)
 INSERT INTO categories VALUES(10, 'secador', 'Secadores de Pelo Philips', 10);
 INSERT INTO categories VALUES(11, 'multi_styler', 'Modeladores de Cabello Philips', 10);
 INSERT INTO categories VALUES(12, 'batidoras', 'Batidoras Philips', 10);
-INSERT INTO categories VALUES(13, '', '', 0);
-INSERT INTO categories VALUES(14, 'licuadoras', 'Licuadoras Philips', 10);
-INSERT INTO categories VALUES(15, 'mixer', 'Mixers Philips', 10);
+INSERT INTO categories VALUES(13, 'licuadoras', 'Licuadoras Philips', 10);
+INSERT INTO categories VALUES(14, 'mixer', 'Mixers Philips', 10);
+INSERT INTO categories VALUES(15, 'pavas', 'Pavas Philips', 10);
 
 INSERT INTO products VALUES(1, 'BAT.PHILIPS MANUAL HR1562/06', '80423', 1, 10);
 INSERT INTO products VALUES(2, 'BAT.PHILIPS HR-1564 PIE', '83052', 1, 10);
@@ -100,6 +100,12 @@ INSERT INTO products VALUES(59, 'SECAD.PHILIPS HP-8195ARG 2000W', '11512', 1, 10
 INSERT INTO products VALUES(60, 'SECAD.PHILIPS HP-8233 2000W', '11768', 1, 10);
 INSERT INTO products VALUES(61, 'SECAD.PHILIPS HP-4935AR 2000W', '12112', 1, 10);
 INSERT INTO products VALUES(62, 'MAQ.P/SOPA PHILIPS HR2200', '11820', 1, 20);
+INSERT INTO products VALUES(63, 'PAVA PHILIPS HD4631', '10432', 1, 10);
+INSERT INTO products VALUES(64, 'PAVA PHILIPS HD4678B 1.2LC/SEL', '10869', 1, 10);
+INSERT INTO products VALUES(65, 'PAVA PHILIPS HD4678/40 1.2LC/S', '11422', 1, 10);
+INSERT INTO products VALUES(66, 'PAVA PHILIPS HD9384/20 AVANCE', '11688', 1, 10);
+INSERT INTO products VALUES(67, 'PAVA PHILIPS HD9300', '11758', 1, 10);
+INSERT INTO products VALUES(68, 'PAVA PHILIPS HD4689/40', '12208', 1, 10);
 
 INSERT INTO subsidiaries VALUES(15, 'LA PLATA', 1,'A');
 INSERT INTO subsidiaries VALUES(10, 'SAN ISIDRO', 1,'A');

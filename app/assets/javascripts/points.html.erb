@@ -23,6 +23,25 @@
         </div>
         </div>
       </li>
+      <li class="products-short" ng-repeat="c in categoriesShort">
+        <div id="f1_container">
+        <div ng-if="c.code">
+        <div id="f1_card" class="shadow">
+        <div class="front face">
+          <a><img ng-src="{{imgs[c.code]}}"/></a>
+        </div>
+        <div class="back face center">
+          <div class="giladita">
+          </div>
+          <div class="giladita-arriba">
+            <div class="up"><strong>{{ c.name }}</strong></div>
+            <div class="down"><strong>{{ c.points }} puntos</strong></div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </li>
     </ul>
 </div>
 </div>

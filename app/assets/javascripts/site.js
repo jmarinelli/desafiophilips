@@ -228,7 +228,9 @@ app.controller('prizesController', ['$scope', function($scope) {
 
 app.controller('categoriesController', ['$scope', '$http', function($scope, $http) {
   $http.get('/api/categories').success(function (data) {
-    $scope.categories = data;
+    var extra = data.length % 4;
+    $scope.categories = data.slice(0, data.length - extra);
+    $scope.categoriesShort = data.slice(data.length - extra);
     $scope.imgs = images;
   });
 }]);

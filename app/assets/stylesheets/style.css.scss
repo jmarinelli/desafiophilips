@@ -384,6 +384,11 @@ table {
 .products-list {
 	width: 660px;
 	margin-left: 75px;
+	.products-short {
+		text-align: center;
+		width: 500px;
+		margin: 0 auto;
+	}
 	#f1_container {
 		border-radius: 5px;
 		float: left;
