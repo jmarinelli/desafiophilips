@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004202119) do
+ActiveRecord::Schema.define(version: 20141008170850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20141004202119) do
 
   create_table "products", force: true do |t|
     t.string  "name"
-    t.string  "code"
     t.integer "company_id"
     t.integer "score"
   end
@@ -61,14 +60,12 @@ ActiveRecord::Schema.define(version: 20141004202119) do
   end
 
   create_table "sales", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "product_id"
+    t.integer "product_id"
+    t.integer "amount"
+    t.string  "user_employee_file_number"
   end
 
   add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
-  add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
   create_table "scores", force: true do |t|
     t.string   "code"

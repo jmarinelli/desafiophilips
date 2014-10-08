@@ -5,9 +5,9 @@ class Subsidiary < ActiveRecord::Base
 	belongs_to :company
 
   def self.top(company, limit)
-    Subsidiary.select("subsidiaries.id, subsidiaries.name, subsidiaries.cluster, coalesce(sum(products.score),0) as points")
-              .joins(:users).joins("LEFT OUTER JOIN sales ON sales.user_id = users.id LEFT OUTER JOIN products ON sales.product_id = products.id")
-              .where(company_id: company).group("subsidiaries.id")
+    Subsidiary.select("subsidiaries.id, subsidiaries.name, subsidiaries.cluster, coalesce(sum(products.score * sales.amount),0) as points")
+              .joins(:users).joins("LEFT OUTER JOIN sales ON sales.user_employee_file_number = users.employee_file_number LEFT OUTER JOIN products ON sales.product_id = products.id")
+              .where(company_id: company).where("sales.product_id IN (select id from products)").group("subsidiaries.id")
               .order("points desc").limit(limit)
   end
 
