@@ -89,7 +89,7 @@ app.controller('rankingController', ['$scope', '$http', 'sessionService', functi
     });
   };
   $scope.showUsers = function() {
-    $http.get('/api/companies/' + session.company.id + '/users/clusters/' + session.cluster + '/ranking?limit=4').success(function (data) {
+    $http.get('/api/companies/' + session.company.id + '/users/clusters/' + session.cluster + '/ranking?limit=5').success(function (data) {
       $scope.users = data;
       $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
         var include = true;
