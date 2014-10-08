@@ -1,7 +1,13 @@
 <div ng-controller="tabsController" class="container" ng-init="init()">
 	<script>
-    <%= render "session_service.js.erb" %>
-  </script>
+	<%= render "session_service.js.erb" %>
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+		$(".fancybox").click()
+	});
+</script>
 	<div class="topbar">
 		<div class="topbar-left">
 			<h1>Destino Philips 2014</h1>
@@ -40,6 +46,7 @@
 			</ul>
 		</div>
 	</div>
+	<a class="fancybox" rel="group" href="<%= image_url("first_week.jpg") %>"></a>
 	<div class="content-box magictime">
 		<div class="content-box-ctn magictime" compile="template" ng-controller="tabsController">
 		</div>

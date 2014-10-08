@@ -8,7 +8,7 @@ class SiteController < ApplicationController
       session[:company_id] = user.company_id
   		redirect_to :action => 'home'
   	else
-  		redirect_to :action => 'index'
+  		redirect_to :action => 'index', :controller => 'site', :notice => "login-error"
   	end
   end
   def home
