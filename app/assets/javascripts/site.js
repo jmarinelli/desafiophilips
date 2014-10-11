@@ -81,25 +81,65 @@ app.controller('tabsController', ['$scope', '$http', '$sce', '$compile', functio
 app.controller('rankingController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {
   $("#users-table").css("display", "");
   $("#subsidiaries-table").css("display", "none");
+  $scope.fullRanking = false;
+  var selectedRanking = 'users';
   $scope.showSubsidiaries = function() {
-    $http.get('/api/companies/' + session.company.id + '/subsidiaries/ranking?limit=5').success(function (data) {
+    $scope.fullRanking = false;
+    selectedRanking = 'subsidiaries';
+    $http.get('/api/companies/' + session.company.id + '/subsidiaries/clusters/' + session.cluster + '/ranking?limit=5').success(function (data) {
       $scope.subsidiaries = data;
       $("#users-table").css("display", "none");
       $("#subsidiaries-table").css("display", "");
     });
   };
   $scope.showUsers = function() {
+    $scope.fullRanking = false;
+    selectedRanking = 'users';
     $http.get('/api/companies/' + session.company.id + '/users/clusters/' + session.cluster + '/ranking?limit=5').success(function (data) {
       $scope.users = data;
       $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
-        var include = true;
-        if (resp.ranking > 4)
-          $scope.user = resp;
+        if (resp.ranking > 4) {
+          resp.me = true
+          $scope.users.push(resp);
+        } else {
+          $scope.users[resp.ranking - 1].me = true;
+        }
         $("#users-table").css("display", "");
         $("#subsidiaries-table").css("display", "none");
       });
     });
   };
+  var showFullUsers = function() {
+    $http.get('/api/companies/' + session.company.id + '/users/clusters/' + session.cluster + '/ranking').success(function (data) {
+      $scope.users = data;
+      $http.get('/api/users/' + session.current_user.id + '/ranking').success(function (resp) {
+        $scope.users[resp.ranking - 1].me = true;
+        $("#users-table").css("display", "");
+        $("#subsidiaries-table").css("display", "none");
+      });
+    });
+  };
+  var showFullSubsidiaries = function() {
+    $http.get('/api/companies/' + session.company.id + '/subsidiaries/clusters/' + session.cluster + '/ranking').success(function (data) {
+      $scope.subsidiaries = data;
+      $("#users-table").css("display", "none");
+      $("#subsidiaries-table").css("display", "");
+    });
+  };
+  $scope.showFullRanking = function() {
+    if ($scope.fullRanking) {
+      if (selectedRanking == 'users')
+        $scope.showUsers();
+      else
+        $scope.showSubsidiaries();
+      return;
+    }
+    $scope.fullRanking = true;
+    if (selectedRanking == 'users')
+      showFullUsers();
+    else
+      showFullSubsidiaries();
+  }
   $scope.showUsers();
 }]);
 app.controller('productsController', ['$scope', '$http', 'sessionService', function ($scope, $http, session) {

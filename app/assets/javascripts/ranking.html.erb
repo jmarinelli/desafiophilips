@@ -15,6 +15,7 @@
       <span class="separator">|</span>
       <input type="radio" name="selector" ng-click="showSubsidiaries();">
       <span>Por Sucursales</span>
+      <span class="full-ranking" ng-click="showFullRanking();" ng-class="{selected: fullRanking}"><strong>Ranking Completo</strong></span>
     </div>
     <div id="users-table">
       <table class="ranking">
@@ -24,17 +25,11 @@
           <th>Sucursal</th>
           <th class="points">Puntos</th>
         </tr>
-        <tr ng-repeat="u in users">
-          <td>{{ $index + 1 }}</td>
+        <tr ng-repeat="u in users" ng-class="{me: u.me}">
+          <td>{{ u.ranking ? u.ranking : $index + 1 }}</td>
           <td>{{ u.name | capitalize }}</td>
           <td>{{ u.subsidiary.name | capitalize }}</td>
           <td>{{ u.points }}</td>
-        </tr>
-        <tr class="me">
-          <td>{{ user.ranking ? user.ranking : '...' }}</td>
-          <td>{{ user.name | capitalize }}</td>
-          <td>{{ user.subsidiary.name | capitalize }}</td>
-          <td class="points">{{ user.points }}</td>
         </tr>
       </table>
     </div>

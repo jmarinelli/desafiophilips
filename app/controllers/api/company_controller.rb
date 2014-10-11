@@ -18,7 +18,7 @@ class Api::CompanyController < ApplicationController
   end
 
   def subsidiary_ranking
-  	@subsidiaries = Subsidiary.top(params[:id], params[:limit])
+  	@subsidiaries = Subsidiary.top(params[:id], params[:cluster_id], params[:limit])
     render json: @subsidiaries, :methods => [ :manager, :sub_manager ]
   end
 end

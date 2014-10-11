@@ -4,11 +4,11 @@ class Subsidiary < ActiveRecord::Base
 	has_many :users
 	belongs_to :company
 
-  def self.top(company, limit)
+  def self.top(company, cluster_id, limit)
     Subsidiary.select("subsidiaries.id, subsidiaries.name, subsidiaries.cluster, coalesce(sum(products.score * sales.amount),0) as points")
               .joins(:users).joins("LEFT OUTER JOIN sales ON sales.user_employee_file_number = users.employee_file_number LEFT OUTER JOIN products ON sales.product_id = products.id")
-              .where(company_id: company).where("sales.product_id IN (select id from products)").group("subsidiaries.id")
-              .order("points desc").limit(limit)
+              .where(company_id: company).where("sales.product_id IN (select id from products)").where("subsidiaries.cluster = ?", cluster_id)
+              .group("subsidiaries.id").order("points desc").limit(limit)
   end
 
   def manager

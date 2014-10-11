@@ -296,6 +296,26 @@ table {
 	width: 80%;
 	margin: 0 auto;
 	margin-bottom: 10px;
+	.full-ranking {
+		cursor: pointer;
+		float: right;
+		background: rgba(255, 255, 255, 0.5);
+		padding: 10px;
+		border-radius: 10px;
+		position: relative;
+		top: -10px;
+		border-style: outset;
+		border-width: 2px;
+		strong {
+			opacity: 1;
+		}
+		&.selected {
+			border-style: inset;
+			strong {
+				opacity: 0.5;
+			}
+		}
+	}
 	input, span {
 		display: inline-block;
 		vertical-align: middle;
